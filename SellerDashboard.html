@@ -207,13 +207,29 @@
             .action-btn { width: 100%; justify-content: center; }
         }
         .mobile-sidebar-toggle { display: none; }
+        
+        .back-home {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: #666;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .back-home:hover { color: #000; }
+        @media (max-width: 768px) {
+            .back-home { font-size: 0.8rem; }
+            .back-home span { display: none; }
+        }
     </style>
 </head>
 <body class="dashboard-body">
 
     <aside class="sidebar" id="sidebar">
         <div style="display: flex; align-items: center; margin-bottom: 3rem;">
-            <div class="sidebar-logo" style="margin-bottom:0;">STACKLY <span style="font-size:0.5em; vertical-align:top; color:#ff9800;">PRO</span></div>
+            <a href="index.html" class="sidebar-logo" style="margin-bottom:0; text-decoration: none; color: inherit;">STACKLY <span style="font-size:0.5em; vertical-align:top; color:#ff9800;">PRO</span></a>
             <i data-lucide="x" class="sidebar-close" onclick="document.getElementById('sidebar').classList.remove('active')"></i>
         </div>
         <nav class="nav-menu">
@@ -228,7 +244,13 @@
 
     <main class="main-content">
         <div class="header-row">
-            <i data-lucide="menu" class="mobile-sidebar-toggle" onclick="document.getElementById('sidebar').classList.toggle('active')"></i>
+            <div style="display: flex; align-items: center; gap: 1.5rem;">
+                <i data-lucide="menu" class="mobile-sidebar-toggle" onclick="document.getElementById('sidebar').classList.toggle('active')"></i>
+                <a href="index.html" class="back-home">
+                    <i data-lucide="arrow-left" style="width: 18px; height: 18px;"></i>
+                    <span>Back to Home</span>
+                </a>
+            </div>
             <div class="user-pill">
                 Welcome, Stakeholder <i data-lucide="user" style="width: 16px; height: 16px;"></i>
             </div>
