@@ -74,11 +74,11 @@
             </div>
 
             <div class="color-options">
-                <p><strong>Selected Color:</strong> CHARCOAL GREY</p>
+                <p><strong>Selected Color:</strong> <span id="color-name-display">CHARCOAL GREY</span></p>
                 <div class="color-thumbs">
-                    <div class="color-thumb active" style="background-image: url('assets/drop5_jacket_1774241890555.webp');"></div>
-                    <div class="color-thumb" style="background-image: url('assets/drop5_sweater_1774241908404.webp');"></div>
-                    <div class="color-thumb" style="background-image: url('assets/drop5_tee_1774241972149.webp');"></div>
+                    <div class="color-thumb active" data-color="CHARCOAL GREY" style="background-image: url('assets/drop5_jacket_1774241890555.webp');"></div>
+                    <div class="color-thumb" data-color="STONE WHITE" style="background-image: url('assets/drop5_sweater_1774241908404.webp');"></div>
+                    <div class="color-thumb" data-color="DEEP BLACK" style="background-image: url('assets/drop5_tee_1774241972149.webp');"></div>
                 </div>
             </div>
 
@@ -109,13 +109,13 @@
                         <div class="offer-card">
                             <span class="offer-tag">Best value for you</span>
                             <div class="offer-detail">
-                                <div class="offer-amount"><strong>$15 off</strong> <a href="#">Apply</a></div>
+                                <div class="offer-amount"><strong>$15 off</strong> <a href="404.html">Apply</a></div>
                                 <p>Flipkart Axis Bank Credit Card</p>
                             </div>
                         </div>
                         <div class="offer-card">
                             <div class="offer-detail">
-                                <div class="offer-amount"><strong>$15 off</strong> <a href="#">Apply</a></div>
+                                <div class="offer-amount"><strong>$15 off</strong> <a href="404.html">Apply</a></div>
                                 <p>HDFC Bank Debit Card Cashback</p>
                             </div>
                         </div>
@@ -224,6 +224,56 @@
         // Update UI on load from localStorage
         window.addEventListener('DOMContentLoaded', () => {
             if(window.updateCartUI) window.updateCartUI();
+        });
+
+        // Size and Color interaction
+        document.querySelectorAll('.size-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+
+        const mainImg = document.getElementById('main-product-img');
+        const galleryThumbs = document.querySelectorAll('.gallery-thumbnails .thumb');
+
+        // Gallery Thumbnails Interaction
+        galleryThumbs.forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                galleryThumbs.forEach(t => t.classList.remove('active'));
+                thumb.classList.add('active');
+                if (mainImg) mainImg.src = thumb.getAttribute('src');
+            });
+        });
+
+        // Color Thumbs Interaction
+        const colorDisplay = document.getElementById('color-name-display');
+        document.querySelectorAll('.color-thumb').forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                document.querySelectorAll('.color-thumb').forEach(t => t.classList.remove('active'));
+                thumb.classList.add('active');
+                if (colorDisplay && thumb.dataset.color) {
+                    colorDisplay.innerText = thumb.dataset.color;
+                }
+                
+                // Sync main image
+                const bgImage = thumb.style.backgroundImage;
+                if (mainImg && bgImage) {
+                    const urlMatch = bgImage.match(/url\(["']?([^"']*)["']?\)/);
+                    if (urlMatch && urlMatch[1]) {
+                        const newSrc = urlMatch[1];
+                        mainImg.src = newSrc;
+                        
+                        // Sync gallery thumb active state if there's a match
+                        galleryThumbs.forEach(t => {
+                            t.classList.remove('active');
+                            if (t.getAttribute('src') === newSrc) {
+                                t.classList.add('active');
+                            }
+                        });
+                    }
+                }
+            });
         });
     </script>
 </body>

@@ -80,11 +80,9 @@ window.addEventListener('scroll', () => {
     
     // Header Background
     if (scroll > 50) {
-        header.style.background = 'rgba(255, 255, 255, 0.98)';
-        header.style.padding = '1rem 3rem';
+        header.classList.add('scrolled');
     } else {
-        header.style.background = 'rgba(255, 255, 255, 0.8)';
-        header.style.padding = '1.5rem 3rem';
+        header.classList.remove('scrolled');
     }
     
     // Hero Parallax

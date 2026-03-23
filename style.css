@@ -66,6 +66,20 @@ header {
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+header.scrolled {
+    padding: 1rem 3rem;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    border-bottom: none;
+}
+
+@media (max-width: 1024px) {
+    header.scrolled {
+        padding: 1rem 1.5rem;
+    }
 }
 
 .logo {

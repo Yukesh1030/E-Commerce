@@ -7,7 +7,7 @@ body.product-page {
 
 .product-detail-container {
     max-width: 1300px;
-    margin: 3rem auto;
+    margin: 120px auto 3rem;
     padding: 0 5%;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -303,11 +303,93 @@ body.product-page {
 /* Responsive */
 @media (max-width: 1024px) {
     .product-detail-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
     }
     
     .product-gallery {
         max-width: 600px;
         margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-detail-container {
+        margin-top: 100px;
+        gap: 2rem;
+    }
+
+    .product-info-panel {
+        align-items: center;
+        text-align: center;
+    }
+
+    .gallery-thumbnails {
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+    }
+
+    .thumb {
+        min-width: 60px;
+        height: 80px;
+    }
+
+    #product-title {
+        font-size: 1.25rem;
+        text-align: center;
+    }
+
+    .price-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .current-price {
+        font-size: 1.5rem;
+    }
+
+    .color-options, .size-options {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .color-thumbs, .size-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .size-header {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .product-description {
+        text-align: center;
+    }
+
+    .bank-offers-box {
+        text-align: center;
+        width: 100%;
+    }
+
+    .offers-header {
+        justify-content: center;
+    }
+
+    .offer-amount {
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .product-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .action-btn {
+        padding: 1rem;
+        width: 100%;
     }
 }
