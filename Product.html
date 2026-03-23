@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | STACKLY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="product.css">
+</head>
+<body class="product-page">
+    
+    <!-- Matching index.html Header -->
+    <header>
+        <div class="logo">Stackly</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Shop.html">Shop</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="index.html#stockists">Stockists</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <i data-lucide="user" class="icon"></i>
+            <span class="cart-icon-wrapper" id="cart-icon-trigger">
+                <i data-lucide="shopping-bag" class="icon"></i>
+                <span class="cart-count">0</span>
+            </span>
+            <div class="hamburger" id="hamburger">
+                <i data-lucide="menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="Shop.html">Shop</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="index.html#stockists">Stockists</a>
+    </div>
+
+    <!-- Product Detail Container -->
+    <main class="product-detail-container">
+        
+        <!-- Left: Image Gallery -->
+        <div class="product-gallery">
+            <div class="gallery-main">
+                <img src="assets/drop5_jacket_1774241890555.webp" alt="Technical Jacket" id="main-product-img">
+            </div>
+            <div class="gallery-thumbnails">
+                <img src="assets/drop5_jacket_1774241890555.webp" alt="Thumb 1" class="thumb active">
+                <img src="assets/drop5_sweater_1774241908404.webp" alt="Thumb 2" class="thumb">
+                <img src="assets/drop5_bag_1774241922238.webp" alt="Thumb 3" class="thumb">
+                <img src="assets/drop5_boots_1774241938251.webp" alt="Thumb 4" class="thumb">
+            </div>
+        </div>
+
+        <!-- Right: Product Info -->
+        <div class="product-info-panel">
+            <h1 id="product-title">Technical Minimalist Jacket</h1>
+            
+            <div class="price-section">
+                <span class="hot-deal">Hot Deal</span>
+                <div class="price-row">
+                    <span class="discount-arrow"><i data-lucide="arrow-down"></i> 30%</span>
+                    <span class="original-price">$928.00</span>
+                    <span class="current-price" id="product-price">$650.00</span>
+                </div>
+            </div>
+
+            <div class="color-options">
+                <p><strong>Selected Color:</strong> CHARCOAL GREY</p>
+                <div class="color-thumbs">
+                    <div class="color-thumb active" style="background-image: url('assets/drop5_jacket_1774241890555.webp');"></div>
+                    <div class="color-thumb" style="background-image: url('assets/drop5_sweater_1774241908404.webp');"></div>
+                    <div class="color-thumb" style="background-image: url('assets/drop5_tee_1774241972149.webp');"></div>
+                </div>
+            </div>
+
+            <div class="size-options">
+                <div class="size-header">
+                    <p><strong>Select Size</strong></p>
+                    <a href="#" class="size-chart-link">Size Chart</a>
+                </div>
+                <div class="size-buttons">
+                    <button class="size-btn">S</button>
+                    <button class="size-btn active">M</button>
+                    <button class="size-btn">L</button>
+                    <button class="size-btn">XL</button>
+                    <button class="size-btn">XXL</button>
+                </div>
+            </div>
+
+            <p class="product-description">STACKLY Men Regular Fit Technical Outerwear Minimalist Casual Jacket</p>
+
+            <div class="bank-offers-box">
+                <div class="offers-header">
+                    <i data-lucide="tag"></i> Apply offers for maximum savings
+                </div>
+                <div class="offers-content">
+                    <h4>Buy at $635.00</h4>
+                    <p class="offers-subtitle">Bank offers</p>
+                    <div class="offers-cards-wrapper">
+                        <div class="offer-card">
+                            <span class="offer-tag">Best value for you</span>
+                            <div class="offer-detail">
+                                <div class="offer-amount"><strong>$15 off</strong> <a href="#">Apply</a></div>
+                                <p>Flipkart Axis Bank Credit Card</p>
+                            </div>
+                        </div>
+                        <div class="offer-card">
+                            <div class="offer-detail">
+                                <div class="offer-amount"><strong>$15 off</strong> <a href="#">Apply</a></div>
+                                <p>HDFC Bank Debit Card Cashback</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-actions">
+                <button class="action-btn cart-btn" id="add-to-cart-action">Add to cart</button>
+                <a href="404.html" class="action-btn buy-btn">Buy at $650.00</a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Cart Drawer (Included so Add to Cart works perfectly) -->
+     <div class="cart-drawer-overlay" id="cart-overlay"></div>
+     <div class="cart-drawer" id="cart-drawer">
+         <div class="drawer-header">
+             <h2>YOUR BAG</h2>
+             <button class="close-drawer" id="close-drawer"><i data-lucide="x"></i></button>
+         </div>
+         <div class="drawer-items" id="drawer-items">
+             <p class="empty-msg">Your bag is currently empty.</p>
+         </div>
+         <div class="drawer-footer">
+             <div class="subtotal-row">
+                 <span>SUBTOTAL</span>
+                 <span id="drawer-subtotal">$0.00</span>
+             </div>
+             <p class="tax-info">Shipping and taxes calculated at checkout.</p>
+             <button class="checkout-btn" onclick="checkout()">PROCEED TO CHECKOUT</button>
+         </div>
+     </div>
+
+    <!-- Matching index.html Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-newsletter">
+                <h3 class="footer-heading">Join the Stackly Universe</h3>
+                <p class="footer-subtext">Sign up for early access to drops and exclusive content.</p>
+                <form class="newsletter-form" action="404.html">
+                    <input type="email" placeholder="Email Address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            <div class="footer-nav">
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Quick links</h4>
+                    <ul class="footer-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="Shop.html">Shop</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="index.html#stockists">Stockists</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Company</h4>
+                    <ul class="footer-list">
+                        <li><a href="404.html">Our Story</a></li>
+                        <li><a href="404.html">Sustainability</a></li>
+                        <li><a href="404.html">Stockists</a></li>
+                        <li><a href="404.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Support</h4>
+                    <ul class="footer-list">
+                        <li><a href="404.html">Shipping</a></li>
+                        <li><a href="404.html">Returns</a></li>
+                        <li><a href="404.html">Privacy Policy</a></li>
+                        <li><a href="404.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-middle">
+            <div class="massive-logo">STACKLY</div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-info">
+                <span>&copy; 2026 STACKLY. ALL RIGHTS RESERVED.</span>
+                <div class="footer-socials">
+                    <a href="#"><i data-lucide="instagram"></i></a>
+                    <a href="#"><i data-lucide="twitter"></i></a>
+                    <a href="#"><i data-lucide="youtube"></i></a>
+                    <a href="#"><i data-lucide="facebook"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="shop.js"></script>
+    <script>
+        // Simple script to wire the Add to Cart button on product page
+        document.getElementById('add-to-cart-action').addEventListener('click', () => {
+            const title = document.getElementById('product-title').innerText;
+            // Parse price
+            const priceText = document.getElementById('product-price').innerText;
+            const price = parseFloat(priceText.replace('$', ''));
+            window.addToCart(title, price);
+        });
+
+        // Update UI on load from localStorage
+        window.addEventListener('DOMContentLoaded', () => {
+            if(window.updateCartUI) window.updateCartUI();
+        });
+    </script>
+</body>
+</html>

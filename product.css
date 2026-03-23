@@ -1,0 +1,313 @@
+/* Product Detail Page Styles */
+
+body.product-page {
+    background-color: #fff;
+    color: #333;
+}
+
+.product-detail-container {
+    max-width: 1300px;
+    margin: 3rem auto;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+/* Left: Gallery */
+.product-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.gallery-main {
+    background: #f9f9f9;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.gallery-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-thumbnails {
+    display: flex;
+    gap: 1rem;
+}
+
+.thumb {
+    width: 80px;
+    height: 100px;
+    object-fit: cover;
+    border: 1px solid #eee;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.thumb.active {
+    border-color: #000;
+}
+
+/* Right: Info Panel */
+.product-info-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+#product-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #212121;
+    margin-bottom: 1.5rem;
+}
+
+.price-section {
+    margin-bottom: 1.5rem;
+}
+
+.hot-deal {
+    background: #008a00;
+    color: #fff;
+    padding: 2px 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 2px;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.price-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.discount-arrow {
+    color: #008a00;
+    font-weight: 700;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.discount-arrow i {
+    width: 20px;
+    height: 20px;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #878787;
+    font-size: 1.25rem;
+}
+
+.current-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #212121;
+}
+
+/* Options */
+.color-options, .size-options {
+    margin-bottom: 1.5rem;
+}
+
+.color-thumbs {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.color-thumb {
+    width: 50px;
+    height: 60px;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid transparent;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.color-thumb.active {
+    border-color: #2874f0;
+}
+
+.size-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.size-chart-link {
+    color: #2874f0;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.size-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.size-btn {
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    cursor: pointer;
+    font-family: inherit;
+    border-radius: 2px;
+    color: #212121;
+}
+
+.size-btn.active {
+    border-color: #2874f0;
+    color: #2874f0;
+    font-weight: 500;
+}
+
+.product-description {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+/* Offers Box */
+.bank-offers-box {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+}
+
+.offers-header {
+    background: #2874f0;
+    color: #fff;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.offers-header i {
+    width: 18px;
+    height: 18px;
+}
+
+.offers-content {
+    background: #f0f8ff;
+    padding: 1.5rem;
+}
+
+.offers-content h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #212121;
+}
+
+.offers-subtitle {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.offers-cards-wrapper {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+}
+
+.offer-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 1rem;
+    min-width: 200px;
+    position: relative;
+    font-size: 0.85rem;
+}
+
+.offer-tag {
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    background: #ffc200;
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 2px;
+}
+
+.offer-amount {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.offer-amount a {
+    color: #2874f0;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.offer-card p {
+    color: #666;
+    margin: 0;
+}
+
+/* Action Buttons */
+.product-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.action-btn {
+    flex: 1;
+    padding: 1.25rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-family: inherit;
+    transition: box-shadow 0.2s;
+}
+
+.action-btn:hover {
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+
+.cart-btn {
+    background-color: #fff;
+    color: #ff9f00;
+    border: 1px solid #e0e0e0;
+}
+
+.buy-btn {
+    background-color: #ff9f00;
+    color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .product-detail-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .product-gallery {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}

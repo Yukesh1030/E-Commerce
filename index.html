@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly | Premium High-Fashion</title>
+    <meta name="description" content="Stackly - Modern high-fashion minimalist collection. Shop our latest drops.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons (CDN) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="shop.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">Stackly</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Shop.html">Shop</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#stockists">Stockists</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <i data-lucide="user" class="icon"></i>
+            <span class="cart-icon-wrapper" id="cart-icon-trigger">
+                <i data-lucide="shopping-bag" class="icon"></i>
+                <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
+            </span>
+            <div class="hamburger" id="hamburger">
+                <i data-lucide="menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="Shop.html">Shop</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#stockists">Stockists</a>
+    </div>
+
+    <main>
+        <section class="hero">
+            <img src="assets/hero.webp" alt="Stackly Hero" class="hero-img">
+            <div class="hero-overlay">Stackly</div>
+            <div class="hero-content">
+                <a href="#shop" class="btn">Explore Collection</a>
+            </div>
+        </section>
+
+        <section class="products" id="shop">
+            <h2 class="section-title">Latest Drops</h2>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="assets/product1.webp" alt="Product 1" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Nomad Jacket</h3>
+                        <p class="product-price">$450.00</p>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="assets/product2.webp" alt="Product 2" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Essential Tee</h3>
+                        <p class="product-price">$85.00</p>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="assets/product3.webp" alt="Product 3" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Onyx Accessory</h3>
+                        <p class="product-price">$120.00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: Infinite Ticker -->
+        <section class="ticker">
+            <div class="ticker-content">
+                <span>NEW DROP FEB 2026 // STACKLY EXCLUSIVE // LIMITED QUANTITIES // SUSTAINABLE COUTURE // MODERN MINIMALISM // </span>
+                <span>NEW DROP FEB 2026 // STACKLY EXCLUSIVE // LIMITED QUANTITIES // SUSTAINABLE COUTURE // MODERN MINIMALISM // </span>
+            </div>
+        </section>
+
+        <!-- Section 2: Category Split -->
+        <section class="category-split" id="categories">
+            <div class="split-item leftreveal">
+                <img src="assets/category_apparel_1774239643938.webp" alt="Apparel Collection">
+                <div class="split-content">
+                    <h3>Apparel</h3>
+                    <a href="#shop" class="btn-link">Discover Now</a>
+                </div>
+            </div>
+            <div class="split-item rightreveal">
+                <img src="assets/category_objects_1774239660985.webp" alt="Objects Collection">
+                <div class="split-content">
+                    <h3>Objects</h3>
+                    <a href="#shop" class="btn-link">Discover Now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: The Process -->
+        <section class="craftsmanship scroll-reveal" id="craft">
+            <div class="craft-container">
+                <div class="craft-img-wrapper">
+                    <img src="assets/craftsmanship_1774239680137.webp" alt="Craftsmanship">
+                </div>
+                <div class="craft-text">
+                    <h2 class="section-title">The Craft</h2>
+                    <p>Every Stackly piece is a testament to meticulous craftsmanship. We merge brutalist architectural elements with high-performance fabrics to create something entirely new.</p>
+                    <p>Sustainability isn't just a buzzword; it's our core principle. From ethically sourced recycled textiles to biodegradable packaging, we are redefining what luxury means in the 21st century.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Editorial Insights -->
+        <section class="editorial" style="background-image: url('assets/editorial_bg_1774239696521.webp');">
+            <div class="editorial-overlay"></div>
+            <div class="editorial-content scroll-reveal">
+                <p class="quote">"Stackly is more than a brand. It's a statement of minimalist luxury and high-performance aesthetics. Designed for the bold."</p>
+                <cite>— Editorial Team</cite>
+            </div>
+        </section>
+
+        <!-- Section 5: Visual Lookbook -->
+        <section class="lookbook" id="lookbook">
+            <h2 class="section-title">Visual Narratives</h2>
+            <div class="lookbook-grid">
+                <div class="lookbook-item reveal">
+                    <img src="assets/lookbook1_1774239608189.webp" alt="Lookbook 1">
+                </div>
+                <div class="lookbook-item reveal">
+                    <img src="assets/lookbook2_1774239625282.webp" alt="Lookbook 2">
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: FAQ / Support -->
+        <section class="faq" id="faq">
+            <div class="faq-container">
+                <h2 class="section-title">Common Inquiries</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-question">When is the next drop? <i data-lucide="chevron-down"></i></button>
+                        <div class="faq-answer">
+                            <p>We drop new collections every 4-6 weeks. Sign up for our universe newsletter to get early access notifications.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Do you ship internationally? <i data-lucide="chevron-down"></i></button>
+                        <div class="faq-answer">
+                            <p>Yes, we ship to over 50 countries worldwide. International shipping rates are calculated at checkout.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">What is your return policy? <i data-lucide="chevron-down"></i></button>
+                        <div class="faq-answer">
+                            <p>We accept returns of unworn items in original packaging within 14 days of delivery. Accessories and limited drops may have different terms.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <div class="about-content">
+                <h2 class="section-title">Minimalism Reimagined</h2>
+                <p class="about-text">Stackly is more than a brand. It's a statement of minimalist luxury and high-performance aesthetics. Designed for the bold.</p>
+            </div>
+            <img src="assets/product1.webp" alt="About Stackly" class="about-img">
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-newsletter">
+                <h3 class="footer-heading">Join the Stackly Universe</h3>
+                <p class="footer-subtext">Sign up for early access to drops and exclusive content.</p>
+                <form class="newsletter-form" action="404.html">
+                    <input type="email" placeholder="Email Address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            <div class="footer-nav">
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Quick links</h4>
+                    <ul class="footer-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="Shop.html">Shop</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="index.html#stockists">Stockists</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Company</h4>
+                    <ul class="footer-list">
+                        <li><a href="404.html">Our Story</a></li>
+                        <li><a href="404.html">Sustainability</a></li>
+                        <li><a href="404.html">Stockists</a></li>
+                        <li><a href="404.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Support</h4>
+                    <ul class="footer-list">
+                        <li><a href="404.html">Shipping</a></li>
+                        <li><a href="404.html">Returns</a></li>
+                        <li><a href="404.html">Privacy Policy</a></li>
+                        <li><a href="404.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-middle">
+            <div class="massive-logo">STACKLY</div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-info">
+                <span>&copy; 2026 STACKLY. ALL RIGHTS RESERVED.</span>
+                <div class="footer-socials">
+                    <a href="#"><i data-lucide="instagram"></i></a>
+                    <a href="#"><i data-lucide="twitter"></i></a>
+                    <a href="#"><i data-lucide="youtube"></i></a>
+                    <a href="#"><i data-lucide="facebook"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div class="cart-drawer-overlay" id="cart-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="drawer-header">
+            <h2>YOUR BAG</h2>
+            <button class="close-btn" id="close-drawer"><i data-lucide="x"></i></button>
+        </div>
+        <div class="drawer-body" id="drawer-items">
+            <!-- Items injected by JS -->
+        </div>
+        <div class="drawer-footer">
+            <div class="subtotal">
+                <span>SUBTOTAL</span>
+                <span id="drawer-subtotal">$0.00</span>
+            </div>
+            <p class="shipping-note">Shipping and taxes calculated at checkout.</p>
+            <button class="checkout-btn" onclick="checkout()">PROCEED TO CHECKOUT</button>
+        </div>
+    </div>
+
+    <script src="shop.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
