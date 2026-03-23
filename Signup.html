@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join | STACKLY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body.auth-page {
+            background-color: #f7f7f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 2rem;
+            font-family: var(--font-sans);
+        }
+        
+        .auth-nav {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: #333;
+            font-size: 0.9rem;
+            transition: opacity 0.3s;
+        }
+        .auth-nav:hover { opacity: 0.7; }
+
+        .auth-card {
+            background: #fff;
+            width: 100%;
+            max-width: 440px;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .auth-logo {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .auth-header h1 {
+            font-size: 1.75rem;
+            font-family: var(--font-serif);
+            margin-bottom: 0.5rem;
+            color: #111;
+        }
+        .auth-header p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .auth-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .auth-form label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #444;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        .auth-form input, .auth-form select {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: var(--font-sans);
+            outline: none;
+            transition: border-color 0.3s;
+            background: #fafafa;
+        }
+        .auth-form input:focus, .auth-form select:focus {
+            border-color: #000;
+            background: #fff;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.8rem;
+            color: #555;
+        }
+        .checkbox-group a {
+            color: #000;
+            text-decoration: underline;
+        }
+
+        .auth-btn {
+            width: 100%;
+            padding: 1rem;
+            background: #000;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background 0.3s;
+        }
+        .auth-btn:hover { background: #333; }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .auth-footer a {
+            color: #000;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .auth-footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body class="auth-page">
+
+    <a href="index.html" class="auth-nav"><i data-lucide="arrow-left" style="width:16px;"></i> Back to Home</a>
+
+    <div class="auth-card">
+        <div class="auth-logo">STACKLY</div>
+        
+        <div class="auth-header">
+            <h1>Create Account</h1>
+            <p>Join the future of high-fashion minimalism</p>
+        </div>
+
+        <form class="auth-form" id="signupForm">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" placeholder="John Doe" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="you@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label>Join As</label>
+                <select id="roleSelect" required>
+                    <option value="customer">Customer</option>
+                    <option value="seller">Seller</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" placeholder="••••••••" required>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" required id="termsCheck">
+                <label for="termsCheck" style="margin:0; text-transform:none; letter-spacing:0; font-weight:400;">I agree to the <a href="404.html">Terms of Service</a> and <a href="404.html">Privacy Policy</a></label>
+            </div>
+
+            <button type="submit" class="auth-btn">Create Account</button>
+        </form>
+
+        <div class="auth-footer">
+            Already have an account? <a href="Login.html">Login</a>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const role = document.getElementById('roleSelect').value;
+            if (role === 'seller') {
+                window.location.href = 'SellerDashboard.html';
+            } else {
+                window.location.href = 'CustomerDashboard.html';
+            }
+        });
+    </script>
+</body>
+</html>

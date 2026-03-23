@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard | STACKLY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body.dashboard-body {
+            background-color: #f7f7f7;
+            display: flex;
+            min-height: 100vh;
+            margin: 0;
+            font-family: var(--font-sans);
+        }
+        
+        .sidebar {
+            width: 260px;
+            background: #fff;
+            border-right: 1px solid rgba(0,0,0,0.05);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            top: 0;
+            z-index: 100;
+        }
+        .sidebar-logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 3rem;
+        }
+        .nav-menu { flex-grow: 1; display: flex; flex-direction: column; gap: 0.5rem; }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            color: #555;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .nav-item:hover, .nav-item.active {
+            background: #000;
+            color: #fff;
+        }
+        .logout-btn { color: #d32f2f; margin-top: auto; }
+        
+        .main-content {
+            flex-grow: 1;
+            margin-left: 260px;
+            padding: 2rem 4rem;
+        }
+        .topbar { display: none; }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .stat-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .stat-card h3 { color: #666; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; }
+        .stat-card .value { font-size: 2.5rem; font-weight: 300; }
+        
+        .chart-section {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.05);
+            margin-bottom: 3rem;
+        }
+        .chart-header { margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .css-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 2rem;
+            height: 200px;
+            border-bottom: 1px solid #eee;
+            border-left: 1px solid #eee;
+            padding: 1rem;
+        }
+        .bar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+        .bar { width: 100%; background: #000; border-radius: 4px 4px 0 0; transition: 1s ease-out; height: 0; }
+        .label { font-size: 0.8rem; color: #666; }
+
+        .recent-purchases h2 { font-family: var(--font-serif); margin-bottom: 1.5rem; }
+        .purchase-scroll {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+        }
+        .purchase-item {
+            min-width: 250px;
+            background: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+        .purchase-item img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        .purchase-info { font-size: 0.9rem; }
+        .purchase-info strong { display: block; margin-bottom: 0.25rem; }
+
+        .sidebar-close { display: none; margin-left: auto; cursor: pointer; color: #888; }
+        .sidebar-close:hover { color: #000; }
+        
+        .header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+        .user-pill { margin-left: auto; background: #111; color: #fff; padding: 0.5rem 1rem; border-radius: 40px; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem; }
+
+        @media (max-width: 1024px) {
+            .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+            .sidebar.active { transform: translateX(0); box-shadow: 5px 0 25px rgba(0,0,0,0.1); }
+            .sidebar-close { display: block; }
+            .main-content { margin-left: 0; padding: 1.5rem; }
+            .mobile-sidebar-toggle { display: block !important; cursor: pointer; }
+        }
+        @media (max-width: 768px) {
+            .main-content { padding: 1rem; }
+            .stats-grid { grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+            .stat-card { padding: 1.5rem; }
+            .css-chart { gap: 1rem; height: 160px; }
+            .chart-section { padding: 1.5rem; margin-bottom: 1.5rem; }
+            .user-pill { font-size: 0.75rem; padding: 0.4rem 0.8rem; }
+            .header-row { margin-bottom: 1.5rem; }
+        }
+        .mobile-sidebar-toggle { display: none; }
+    </style>
+</head>
+<body class="dashboard-body">
+
+    <aside class="sidebar" id="sidebar">
+        <div style="display: flex; align-items: center; margin-bottom: 3rem;">
+            <div class="sidebar-logo" style="margin-bottom:0;">STACKLY</div>
+            <i data-lucide="x" class="sidebar-close" onclick="document.getElementById('sidebar').classList.remove('active')"></i>
+        </div>
+        <nav class="nav-menu">
+            <a href="#" class="nav-item active"><i data-lucide="layout-dashboard"></i> Overview</a>
+            <a href="404.html" class="nav-item"><i data-lucide="package"></i> Orders</a>
+            <a href="404.html" class="nav-item"><i data-lucide="credit-card"></i> Payment Methods</a>
+            
+            <a href="Login.html" class="nav-item logout-btn"><i data-lucide="log-out"></i> Log Out</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <div class="header-row">
+            <i data-lucide="menu" class="mobile-sidebar-toggle" onclick="document.getElementById('sidebar').classList.toggle('active')"></i>
+            <div class="user-pill">
+                Welcome, Customer <i data-lucide="user" style="width: 16px; height: 16px;"></i>
+            </div>
+        </div>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <h3>Total Spent</h3>
+                <div class="value">$2,450</div>
+            </div>
+            <div class="stat-card">
+                <h3>Active Orders</h3>
+                <div class="value">2</div>
+            </div>
+            <div class="stat-card">
+                <h3>Saved Items</h3>
+                <div class="value">14</div>
+            </div>
+        </section>
+
+        <section class="chart-section">
+            <div class="chart-header">
+                <h2>Spending History</h2>
+                <span style="color:#666; font-size:0.9rem;">2026</span>
+            </div>
+            <div class="css-chart">
+                <div class="bar-wrap"><div class="bar" style="height: 40%;"></div><span class="label">Q1</span></div>
+                <div class="bar-wrap"><div class="bar" style="height: 70%;"></div><span class="label">Q2</span></div>
+                <div class="bar-wrap"><div class="bar" style="height: 30%;"></div><span class="label">Q3</span></div>
+                <div class="bar-wrap"><div class="bar" style="height: 90%;"></div><span class="label">Q4</span></div>
+            </div>
+        </section>
+
+        <section class="recent-purchases">
+            <h2>Recent Orders</h2>
+            <div class="purchase-scroll">
+                <div class="purchase-item">
+                    <img src="assets/shop_item_blazer_cart_1774241017184.webp" alt="Purchased Blazer">
+                    <div class="purchase-info">
+                        <strong>Technical Blazer</strong>
+                        <span>$850</span>
+                        <div style="color: #4caf50; font-size:0.8rem; margin-top:0.5rem;"><i data-lucide="check-circle" style="width:14px; height:14px; vertical-align:text-bottom;"></i> Delivered</div>
+                    </div>
+                </div>
+                <div class="purchase-item">
+                    <img src="assets/shop_item_tote_cart_1774241034471.webp" alt="Purchased Tote">
+                    <div class="purchase-info">
+                        <strong>Utilitarian Tote Bag</strong>
+                        <span>$320</span>
+                        <div style="color: #f57c00; font-size:0.8rem; margin-top:0.5rem;"><i data-lucide="truck" style="width:14px; height:14px; vertical-align:text-bottom;"></i> In Transit</div>
+                    </div>
+                </div>
+                <div class="purchase-item">
+                    <img src="assets/shop_item_dress_cart_1774241065849.webp" alt="Purchased Dress">
+                    <div class="purchase-info">
+                        <strong>Asymmetric Dress</strong>
+                        <span>$640</span>
+                        <div style="color: #4caf50; font-size:0.8rem; margin-top:0.5rem;"><i data-lucide="check-circle" style="width:14px; height:14px; vertical-align:text-bottom;"></i> Delivered</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

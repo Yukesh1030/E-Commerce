@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Dashboard | STACKLY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body.dashboard-body {
+            background-color: #f0f2f5;
+            display: flex;
+            min-height: 100vh;
+            margin: 0;
+            font-family: var(--font-sans);
+        }
+        
+        .sidebar {
+            width: 260px;
+            background: #111;
+            color: #fff;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            top: 0;
+            z-index: 100;
+        }
+        .sidebar-logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 3rem;
+            color: #fff;
+        }
+        .nav-menu { flex-grow: 1; display: flex; flex-direction: column; gap: 0.5rem; }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            color: #aaa;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .nav-item:hover, .nav-item.active {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+        }
+        .logout-btn { color: #ff5252; margin-top: auto; }
+        
+        .main-content {
+            flex-grow: 1;
+            margin-left: 260px;
+            padding: 2rem 4rem;
+        }
+        .topbar { display: none; }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .stat-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+        .stat-card h3 { color: #666; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; }
+        .stat-card .value { font-size: 2rem; font-weight: 600; display:flex; align-items:center; justify-content:space-between; }
+        .stat-card .trend.up { color: #4caf50; font-size: 0.9rem; }
+        .stat-card .trend.down { color: #f44336; font-size: 0.9rem; }
+        
+        .chart-section {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            margin-bottom: 3rem;
+        }
+        .chart-header { margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center; }
+        
+        /* Advanced CSS Line Graph Simulation */
+        .line-chart-area {
+            height: 250px;
+            border-bottom: 2px solid #eee;
+            border-left: 2px solid #eee;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        .chart-line {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.05), transparent);
+            clip-path: polygon(0 100%, 0 80%, 20% 60%, 40% 75%, 60% 40%, 80% 50%, 100% 20%, 100% 100%);
+        }
+        .chart-points { display: flex; justify-content: space-between; position: absolute; bottom: -25px; width: 100%; color: #888; font-size: 0.8rem; }
+
+        .inventory-table {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+        .inventory-table h2 { font-family: var(--font-serif); margin-bottom: 1.5rem; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { text-align: left; padding: 1rem; border-bottom: 1px solid #eee; font-size: 0.95rem; }
+        th { color: #888; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+        .product-cell { display: flex; align-items: center; gap: 1rem; }
+        .product-cell img { width: 40px; height: 40px; border-radius: 4px; object-fit: cover; }
+        .status { padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500; }
+        .status.instock { background: #e8f5e9; color: #2e7d32; }
+        .status.low { background: #fff3e0; color: #ef6c00; }
+
+        .sidebar-close { display: none; margin-left: auto; cursor: pointer; color: #888; }
+        .sidebar-close:hover { color: #fff; }
+        
+        .header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+        .user-pill { margin-left: auto; background: #fff; color: #111; padding: 0.5rem 1rem; border-radius: 40px; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 500; }
+
+        @media (max-width: 1024px) {
+            .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+            .sidebar.active { transform: translateX(0); box-shadow: 5px 0 25px rgba(0,0,0,0.5); }
+            .sidebar-close { display: block; }
+            .main-content { margin-left: 0; padding: 1.5rem; }
+            .mobile-sidebar-toggle { display: block !important; cursor: pointer; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .main-content { padding: 1rem; }
+            .stats-grid { grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+            .stat-card { padding: 1.5rem; }
+            .chart-section { padding: 1.5rem; margin-bottom: 1.5rem; }
+            .line-chart-area { height: 180px; }
+            .inventory-table { padding: 1rem; }
+            .user-pill { font-size: 0.75rem; padding: 0.4rem 0.8rem; }
+            .header-row { margin-bottom: 1.5rem; }
+            table { display: block; overflow-x: auto; white-space: nowrap; }
+        }
+        .mobile-sidebar-toggle { display: none; }
+    </style>
+</head>
+<body class="dashboard-body">
+
+    <aside class="sidebar" id="sidebar">
+        <div style="display: flex; align-items: center; margin-bottom: 3rem;">
+            <div class="sidebar-logo" style="margin-bottom:0;">STACKLY <span style="font-size:0.5em; vertical-align:top; color:#ff9800;">PRO</span></div>
+            <i data-lucide="x" class="sidebar-close" onclick="document.getElementById('sidebar').classList.remove('active')"></i>
+        </div>
+        <nav class="nav-menu">
+            <a href="#" class="nav-item active"><i data-lucide="bar-chart-2"></i> Analytics</a>
+            <a href="404.html" class="nav-item"><i data-lucide="box"></i> Inventory</a>
+            <a href="404.html" class="nav-item"><i data-lucide="tag"></i> Discount Codes</a>
+            <a href="404.html" class="nav-item"><i data-lucide="dollar-sign"></i> Payouts</a>
+            
+            
+            <a href="Login.html" class="nav-item logout-btn"><i data-lucide="log-out"></i> Log Out</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <div class="header-row">
+            <i data-lucide="menu" class="mobile-sidebar-toggle" onclick="document.getElementById('sidebar').classList.toggle('active')"></i>
+            <div class="user-pill">
+                Welcome, Stakeholder <i data-lucide="user" style="width: 16px; height: 16px;"></i>
+            </div>
+        </div>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <h3>Total Revenue</h3>
+                <div class="value">$124,500 <span class="trend up">+15%</span></div>
+            </div>
+            <div class="stat-card">
+                <h3>Units Sold</h3>
+                <div class="value">342 <span class="trend up">+8%</span></div>
+            </div>
+            <div class="stat-card">
+                <h3>Return Rate</h3>
+                <div class="value">2.4% <span class="trend down">-1%</span></div>
+            </div>
+            <div class="stat-card">
+                <h3>Active Listings</h3>
+                <div class="value">18</div>
+            </div>
+        </section>
+
+        <section class="chart-section">
+            <div class="chart-header">
+                <h2>Revenue Trajectory</h2>
+                <span style="color:#666; font-size:0.9rem;">Last 30 Days</span>
+            </div>
+            <div class="line-chart-area">
+                <div class="chart-line"></div>
+                <!-- SVG path representing a strict line graph -->
+                <svg width="100%" height="100%" preserveAspectRatio="none" style="position: absolute; bottom: 0; left: 0; overflow: visible;">
+                    <path d="M 0 200 L 20% 160 L 40% 190 L 60% 100 L 80% 125 L 100% 50" fill="transparent" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div class="chart-points">
+                    <span>Week 1</span><span>Week 2</span><span>Week 3</span><span>Week 4</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="inventory-table">
+            <h2>Top Performing Assets</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Sales</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="product-cell">
+                            <img src="assets/drop5_jacket_1774241890555.webp" alt="Jacket">
+                            <strong>Technical Minimalist Jacket</strong>
+                        </td>
+                        <td>$650.00</td>
+                        <td>84</td>
+                        <td><span class="status instock">In Stock</span></td>
+                        <td><a href="404.html" style="color:#2874f0; text-decoration:none;">Manage</a></td>
+                    </tr>
+                    <tr>
+                        <td class="product-cell">
+                            <img src="assets/drop5_bag_1774241922238.webp" alt="Bag">
+                            <strong>Utilitarian Canvas Bag</strong>
+                        </td>
+                        <td>$320.00</td>
+                        <td>112</td>
+                        <td><span class="status low">Low Stock</span></td>
+                        <td><a href="404.html" style="color:#2874f0; text-decoration:none;">Manage</a></td>
+                    </tr>
+                    <tr>
+                        <td class="product-cell">
+                            <img src="assets/drop5_boots_1774241938251.webp" alt="Boots">
+                            <strong>Industrial Combat Boots</strong>
+                        </td>
+                        <td>$890.00</td>
+                        <td>45</td>
+                        <td><span class="status instock">In Stock</span></td>
+                        <td><a href="404.html" style="color:#2874f0; text-decoration:none;">Manage</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
