@@ -59,9 +59,21 @@
             flex-grow: 1;
             margin-left: 260px;
             padding: 2rem 4rem;
+            min-width: 0;
+            width: 100%;
+            box-sizing: border-box;
         }
         .topbar { display: none; }
         
+        /* Views */
+        .dashboard-view {
+            animation: fadeIn 0.4s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -126,6 +138,52 @@
         .header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
         .user-pill { margin-left: auto; background: #fff; color: #111; padding: 0.5rem 1rem; border-radius: 40px; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 500; }
 
+        /* General Section Header for new tabs */
+        .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
+        .section-header h2 { font-family: var(--font-serif); margin: 0; }
+        .action-btn { background: #111; color: #fff; border: none; padding: 0.8rem 1.5rem; border-radius: 6px; font-family: inherit; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; transition: background 0.2s; }
+        .action-btn:hover { background: #333; }
+        .action-btn.secondary { background: #fff; color: #111; border: 1px solid #ccc; }
+        .action-btn.secondary:hover { background: #f5f5f5; border-color: #aaa; }
+
+        /* Inventory View overrides */
+        .inventory-list { background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); overflow-x: auto; }
+        .inventory-list table { width: 100%; border-collapse: collapse; min-width: 600px; }
+        .inventory-list th, .inventory-list td { text-align: left; padding: 1.25rem 1.5rem; border-bottom: 1px solid #eee; font-size: 0.95rem; }
+        .inventory-list th { color: #888; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; background: #fafafa; }
+        .inventory-list tr:last-child td { border-bottom: none; }
+        
+        /* Discount Codes View */
+        .discount-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+        .discount-card { background: #fff; padding: 1.5rem; border-radius: 12px; border: 1px dashed #ccc; box-shadow: 0 4px 15px rgba(0,0,0,0.01); display: flex; flex-direction: column; gap: 1rem; }
+        .discount-code-tag { display: inline-block; background: #111; color: #fff; padding: 0.5rem 1rem; border-radius: 4px; font-family: monospace; font-size: 1.2rem; font-weight: 600; letter-spacing: 2px; }
+        .discount-details { display: flex; justify-content: space-between; font-size: 0.85rem; color: #666; }
+        .toggle-switch { position: relative; display: inline-block; width: 40px; height: 22px; }
+        .toggle-switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: #111; }
+        input:checked + .slider:before { transform: translateX(18px); }
+
+        /* Payouts View */
+        .payout-overview { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
+        .payout-card { background: #111; color: #fff; padding: 2rem; border-radius: 12px; position: relative; overflow: hidden; }
+        .payout-card::before { content: ''; position: absolute; top: -30px; right: -30px; width: 100px; height: 100px; background: rgba(255,255,255,0.05); border-radius: 50%; }
+        .payout-card h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: #aaa; margin-bottom: 0.5rem; }
+        .payout-card .amount { font-size: 2.5rem; font-weight: 600; }
+        .payout-card .date { font-size: 0.9rem; margin-top: 1rem; display: flex; align-items: center; gap: 0.5rem; color: #ddd; }
+        
+        .payout-history { background: #fff; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+        .payout-history h3 { font-family: var(--font-serif); margin-bottom: 1.5rem; }
+        .payout-list { display: flex; flex-direction: column; gap: 1rem; }
+        .payout-item { display: flex; justify-content: space-between; align-items: center; padding-bottom: 1rem; border-bottom: 1px solid #eee; }
+        .payout-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .payout-info strong { display: block; margin-bottom: 0.25rem; font-size: 1.05rem; color: #111; }
+        .payout-info span { color: #888; font-size: 0.85rem; }
+        .payout-status { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 500; }
+        .payout-status.completed { color: #4caf50; }
+        .payout-status.pending { color: #ff9800; }
+
         @media (max-width: 1024px) {
             .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
             .sidebar.active { transform: translateX(0); box-shadow: 5px 0 25px rgba(0,0,0,0.5); }
@@ -143,7 +201,10 @@
             .inventory-table { padding: 1rem; }
             .user-pill { font-size: 0.75rem; padding: 0.4rem 0.8rem; }
             .header-row { margin-bottom: 1.5rem; }
-            table { display: block; overflow-x: auto; white-space: nowrap; }
+            
+            .payout-overview { grid-template-columns: 1fr; }
+            .section-header { flex-direction: column; align-items: flex-start; }
+            .action-btn { width: 100%; justify-content: center; }
         }
         .mobile-sidebar-toggle { display: none; }
     </style>
@@ -156,11 +217,10 @@
             <i data-lucide="x" class="sidebar-close" onclick="document.getElementById('sidebar').classList.remove('active')"></i>
         </div>
         <nav class="nav-menu">
-            <a href="#" class="nav-item active"><i data-lucide="bar-chart-2"></i> Analytics</a>
-            <a href="404.html" class="nav-item"><i data-lucide="box"></i> Inventory</a>
-            <a href="404.html" class="nav-item"><i data-lucide="tag"></i> Discount Codes</a>
-            <a href="404.html" class="nav-item"><i data-lucide="dollar-sign"></i> Payouts</a>
-            
+            <a href="#" id="nav-analytics" class="nav-item active" onclick="switchTab('analytics')"><i data-lucide="bar-chart-2"></i> Analytics</a>
+            <a href="#" id="nav-inventory" class="nav-item" onclick="switchTab('inventory')"><i data-lucide="box"></i> Inventory</a>
+            <a href="#" id="nav-discount" class="nav-item" onclick="switchTab('discount')"><i data-lucide="tag"></i> Discount Codes</a>
+            <a href="#" id="nav-payouts" class="nav-item" onclick="switchTab('payouts')"><i data-lucide="dollar-sign"></i> Payouts</a>
             
             <a href="Login.html" class="nav-item logout-btn"><i data-lucide="log-out"></i> Log Out</a>
         </nav>
@@ -174,92 +234,286 @@
             </div>
         </div>
 
-        <section class="stats-grid">
-            <div class="stat-card">
-                <h3>Total Revenue</h3>
-                <div class="value">$124,500 <span class="trend up">+15%</span></div>
-            </div>
-            <div class="stat-card">
-                <h3>Units Sold</h3>
-                <div class="value">342 <span class="trend up">+8%</span></div>
-            </div>
-            <div class="stat-card">
-                <h3>Return Rate</h3>
-                <div class="value">2.4% <span class="trend down">-1%</span></div>
-            </div>
-            <div class="stat-card">
-                <h3>Active Listings</h3>
-                <div class="value">18</div>
-            </div>
-        </section>
+        <!-- ANALYTICS VIEW -->
+        <div id="view-analytics" class="dashboard-view active">
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Revenue</h3>
+                    <div class="value">$124,500 <span class="trend up">+15%</span></div>
+                </div>
+                <div class="stat-card">
+                    <h3>Units Sold</h3>
+                    <div class="value">342 <span class="trend up">+8%</span></div>
+                </div>
+                <div class="stat-card">
+                    <h3>Return Rate</h3>
+                    <div class="value">2.4% <span class="trend down">-1%</span></div>
+                </div>
+                <div class="stat-card">
+                    <h3>Active Listings</h3>
+                    <div class="value">18</div>
+                </div>
+            </section>
 
-        <section class="chart-section">
-            <div class="chart-header">
-                <h2>Revenue Trajectory</h2>
-                <span style="color:#666; font-size:0.9rem;">Last 30 Days</span>
+            <section class="chart-section">
+                <div class="chart-header">
+                    <h2>Revenue Trajectory</h2>
+                    <span style="color:#666; font-size:0.9rem;">Last 30 Days</span>
+                </div>
+                <div class="line-chart-area">
+                    <div class="chart-line"></div>
+                    <!-- SVG path representing a strict line graph -->
+                    <svg width="100%" height="100%" preserveAspectRatio="none" style="position: absolute; bottom: 0; left: 0; overflow: visible;">
+                        <path d="M 0 200 L 20% 160 L 40% 190 L 60% 100 L 80% 125 L 100% 50" fill="transparent" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="chart-points">
+                        <span>Week 1</span><span>Week 2</span><span>Week 3</span><span>Week 4</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="inventory-table">
+                <h2>Top Performing Assets</h2>
+                <div style="overflow-x:auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th>Sales</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="product-cell">
+                                    <img src="assets/drop5_jacket_1774241890555.webp" alt="Jacket">
+                                    <strong>Technical Minimalist Jacket</strong>
+                                </td>
+                                <td>$650.00</td>
+                                <td>84</td>
+                                <td><span class="status instock">In Stock</span></td>
+                                <td><a href="404.html" style="color:#2874f0; text-decoration:none;">Manage</a></td>
+                            </tr>
+                            <tr>
+                                <td class="product-cell">
+                                    <img src="assets/drop5_bag_1774241922238.webp" alt="Bag">
+                                    <strong>Utilitarian Canvas Bag</strong>
+                                </td>
+                                <td>$320.00</td>
+                                <td>112</td>
+                                <td><span class="status low">Low Stock</span></td>
+                                <td><a href="404.html" style="color:#2874f0; text-decoration:none;">Manage</a></td>
+                            </tr>
+                            <tr>
+                                <td class="product-cell">
+                                    <img src="assets/drop5_boots_1774241938251.webp" alt="Boots">
+                                    <strong>Industrial Combat Boots</strong>
+                                </td>
+                                <td>$890.00</td>
+                                <td>45</td>
+                                <td><span class="status instock">In Stock</span></td>
+                                <td><a href="404.html" style="color:#2874f0; text-decoration:none;">Manage</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+        <!-- INVENTORY VIEW -->
+        <div id="view-inventory" class="dashboard-view" style="display: none;">
+            <div class="section-header">
+                <h2>Inventory Management</h2>
+                <button class="action-btn" onclick="window.location.href='404.html'"><i data-lucide="plus" style="width:18px;height:18px;"></i> Add Product</button>
             </div>
-            <div class="line-chart-area">
-                <div class="chart-line"></div>
-                <!-- SVG path representing a strict line graph -->
-                <svg width="100%" height="100%" preserveAspectRatio="none" style="position: absolute; bottom: 0; left: 0; overflow: visible;">
-                    <path d="M 0 200 L 20% 160 L 40% 190 L 60% 100 L 80% 125 L 100% 50" fill="transparent" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <div class="chart-points">
-                    <span>Week 1</span><span>Week 2</span><span>Week 3</span><span>Week 4</span>
+            
+            <div class="inventory-list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>SKU</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="product-cell">
+                                <img src="assets/drop5_jacket_1774241890555.webp" alt="Jacket">
+                                <strong>Technical Minimalist Jacket</strong>
+                            </td>
+                            <td>JAC-TECH-001</td>
+                            <td>$650.00</td>
+                            <td>42 / 100</td>
+                            <td><span class="status instock">Active</span></td>
+                            <td><a href="404.html" style="color:#111;text-decoration:underline;">Edit</a></td>
+                        </tr>
+                        <tr>
+                            <td class="product-cell">
+                                <img src="assets/drop5_bag_1774241922238.webp" alt="Bag">
+                                <strong>Utilitarian Canvas Bag</strong>
+                            </td>
+                            <td>BAG-UTIL-002</td>
+                            <td>$320.00</td>
+                            <td>12 / 100</td>
+                            <td><span class="status low">Low Stock</span></td>
+                            <td><a href="404.html" style="color:#111;text-decoration:underline;">Edit</a></td>
+                        </tr>
+                        <tr>
+                            <td class="product-cell">
+                                <img src="assets/drop5_boots_1774241938251.webp" alt="Boots">
+                                <strong>Industrial Combat Boots</strong>
+                            </td>
+                            <td>BOT-IND-003</td>
+                            <td>$890.00</td>
+                            <td>85 / 100</td>
+                            <td><span class="status instock">Active</span></td>
+                            <td><a href="404.html" style="color:#111;text-decoration:underline;">Edit</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- DISCOUNT CODES VIEW -->
+        <div id="view-discount" class="dashboard-view" style="display: none;">
+            <div class="section-header">
+                <h2>Discount Codes</h2>
+                <button class="action-btn" onclick="window.location.href='404.html'"><i data-lucide="tag" style="width:18px;height:18px;"></i> Create Code</button>
+            </div>
+            
+            <div class="discount-grid">
+                <div class="discount-card">
+                    <div style="display: flex; justify-content: space-between; align-items:flex-start;">
+                        <div class="discount-code-tag">SUMMER20</div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div style="font-size: 1.1rem; font-weight: 500;">20% off all orders</div>
+                    <div class="discount-details">
+                        <span>Used 45 times</span>
+                        <span>Expires on Aug 31, 2026</span>
+                    </div>
+                </div>
+
+                <div class="discount-card">
+                    <div style="display: flex; justify-content: space-between; align-items:flex-start;">
+                        <div class="discount-code-tag">WELCOME10</div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div style="font-size: 1.1rem; font-weight: 500;">10% off specific collections</div>
+                    <div class="discount-details">
+                        <span>Used 1,204 times</span>
+                        <span>No expiry date</span>
+                    </div>
+                </div>
+                
+                <div class="discount-card" style="opacity: 0.6;">
+                    <div style="display: flex; justify-content: space-between; align-items:flex-start;">
+                        <div class="discount-code-tag">HOLIDAY26</div>
+                        <label class="toggle-switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div style="font-size: 1.1rem; font-weight: 500;">15% off orders over $500</div>
+                    <div class="discount-details">
+                        <span>Used 0 times</span>
+                        <span>Starts Dec 1, 2026</span>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <section class="inventory-table">
-            <h2>Top Performing Assets</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th>Price</th>
-                        <th>Sales</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="product-cell">
-                            <img src="assets/drop5_jacket_1774241890555.webp" alt="Jacket">
-                            <strong>Technical Minimalist Jacket</strong>
-                        </td>
-                        <td>$650.00</td>
-                        <td>84</td>
-                        <td><span class="status instock">In Stock</span></td>
-                        <td><a href="404.html" style="color:#2874f0; text-decoration:none;">Manage</a></td>
-                    </tr>
-                    <tr>
-                        <td class="product-cell">
-                            <img src="assets/drop5_bag_1774241922238.webp" alt="Bag">
-                            <strong>Utilitarian Canvas Bag</strong>
-                        </td>
-                        <td>$320.00</td>
-                        <td>112</td>
-                        <td><span class="status low">Low Stock</span></td>
-                        <td><a href="404.html" style="color:#2874f0; text-decoration:none;">Manage</a></td>
-                    </tr>
-                    <tr>
-                        <td class="product-cell">
-                            <img src="assets/drop5_boots_1774241938251.webp" alt="Boots">
-                            <strong>Industrial Combat Boots</strong>
-                        </td>
-                        <td>$890.00</td>
-                        <td>45</td>
-                        <td><span class="status instock">In Stock</span></td>
-                        <td><a href="404.html" style="color:#2874f0; text-decoration:none;">Manage</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+        <!-- PAYOUTS VIEW -->
+        <div id="view-payouts" class="dashboard-view" style="display: none;">
+            <div class="section-header">
+                <h2>Payouts & Earnings</h2>
+                <button class="action-btn secondary" onclick="window.location.href='404.html'"><i data-lucide="download" style="width:18px;height:18px;"></i> Export CSV</button>
+            </div>
+            
+            <div class="payout-overview">
+                <div class="payout-card">
+                    <h3>Available Balance</h3>
+                    <div class="amount">$14,250.00</div>
+                    <div class="date"><i data-lucide="calendar" style="width:14px;height:14px;"></i> Next Payout on Nov 1, 2026</div>
+                </div>
+                <div class="payout-card" style="background: #fff; border: 1px solid #eee; color: #111;">
+                    <h3 style="color: #666;">Total Lifetime Earnings</h3>
+                    <div class="amount">$842,500.00</div>
+                    <div class="date" style="color:#666;"><i data-lucide="bar-chart" style="width:14px;height:14px;"></i> Since Jan 2024</div>
+                </div>
+            </div>
+
+            <div class="payout-history">
+                <h3>Recent Payouts</h3>
+                <div class="payout-list">
+                    <div class="payout-item">
+                        <div class="payout-info">
+                            <strong>$8,450.00</strong>
+                            <span>Paid to bank account ending in 4242</span>
+                        </div>
+                        <div style="text-align: right;">
+                            <div class="payout-status completed"><i data-lucide="check-circle" style="width:14px;height:14px;"></i> Completed</div>
+                            <span style="font-size: 0.8rem; color:#888;">Oct 1, 2026</span>
+                        </div>
+                    </div>
+                    <div class="payout-item">
+                        <div class="payout-info">
+                            <strong>$12,100.00</strong>
+                            <span>Paid to bank account ending in 4242</span>
+                        </div>
+                        <div style="text-align: right;">
+                            <div class="payout-status completed"><i data-lucide="check-circle" style="width:14px;height:14px;"></i> Completed</div>
+                            <span style="font-size: 0.8rem; color:#888;">Sep 1, 2026</span>
+                        </div>
+                    </div>
+                    <div class="payout-item">
+                        <div class="payout-info">
+                            <strong>$9,300.00</strong>
+                            <span>Paid to bank account ending in 4242</span>
+                        </div>
+                        <div style="text-align: right;">
+                            <div class="payout-status completed"><i data-lucide="check-circle" style="width:14px;height:14px;"></i> Completed</div>
+                            <span style="font-size: 0.8rem; color:#888;">Aug 1, 2026</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <script>
         lucide.createIcons();
+        
+        function switchTab(tabId) {
+            // Update sidebar active states
+            document.querySelectorAll('.nav-item').forEach(item => {
+                if(item.id.startsWith('nav-')) item.classList.remove('active');
+            });
+            const clickedTab = document.getElementById('nav-' + tabId);
+            if(clickedTab) clickedTab.classList.add('active');
+            
+            // Hide all views, show selected
+            document.querySelectorAll('.dashboard-view').forEach(view => view.style.display = 'none');
+            const targetView = document.getElementById('view-' + tabId);
+            if(targetView) targetView.style.display = 'block';
+
+            // Close sidebar on mobile after clicking
+            if(window.innerWidth <= 1024) {
+                document.getElementById('sidebar').classList.remove('active');
+            }
+        }
     </script>
 </body>
 </html>

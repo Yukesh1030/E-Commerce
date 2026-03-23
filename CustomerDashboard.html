@@ -58,9 +58,21 @@
             flex-grow: 1;
             margin-left: 260px;
             padding: 2rem 4rem;
+            min-width: 0;
+            width: 100%;
+            box-sizing: border-box;
         }
         .topbar { display: none; }
         
+        /* Views */
+        .dashboard-view {
+            animation: fadeIn 0.4s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -123,6 +135,42 @@
         .purchase-info { font-size: 0.9rem; }
         .purchase-info strong { display: block; margin-bottom: 0.25rem; }
 
+        /* Orders */
+        .orders-list { display: flex; flex-direction: column; gap: 1.5rem; }
+        .order-card { background: #fff; border-radius: 12px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 15px rgba(0,0,0,0.02); overflow: hidden; }
+        .order-header { background: #fafafa; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+        .order-label { color: #888; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; margin-right: 0.5rem; }
+        .order-date { color: #666; font-size: 0.85rem; }
+        .order-body { padding: 1.5rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+        .order-body img { width: 80px; height: 80px; object-fit: cover; border-radius: 8px; border: 1px solid #eee; }
+        .order-details { flex-grow: 1; min-width: 180px; }
+        .order-details strong { display: block; font-size: 1.1rem; margin-bottom: 0.25rem; }
+        .order-qty { color: #666; font-size: 0.9rem; margin-bottom: 0.25rem; }
+        .order-price { font-weight: 600; font-size: 1.1rem; }
+        .order-status { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: 40px; font-size: 0.85rem; font-weight: 500; }
+        .order-status.delivered { background: #e8f5e9; color: #2e7d32; }
+        .order-status.transit { background: #fff3e0; color: #ef6c00; }
+        .order-action-btn { padding: 0.6rem 1.2rem; background: #fff; color: #111; border: 1px solid #ccc; border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap; font-weight: 500;}
+        .order-action-btn:hover { background: #111; color: #fff; border-color: #111; }
+
+        /* Payment Methods */
+        .add-payment-btn { background: #000; color: #fff; border: none; padding: 0.8rem 1.5rem; border-radius: 6px; font-family: inherit; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; transition: background 0.2s; margin-left: auto; }
+        .add-payment-btn:hover { background: #333; }
+        .payment-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+        .payment-card { background: #111; color: #fff; border-radius: 16px; padding: 1.5rem; position: relative; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .payment-card::before { content: ''; position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: rgba(255,255,255,0.05); border-radius: 50%; }
+        .card-brand { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; font-weight: 500; letter-spacing: 1px; font-size: 1.1rem; }
+        .card-number { font-family: monospace; font-size: 1.4rem; letter-spacing: 2px; margin-bottom: 1.5rem; }
+        .card-details { display: flex; justify-content: space-between; align-items: flex-end; }
+        .detail-label { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 0.25rem; }
+        .detail-val { font-weight: 500; letter-spacing: 1px; }
+        .card-actions { display: flex; gap: 0.5rem; position: relative; z-index: 2;}
+        .icon-btn { background: rgba(255,255,255,0.1); border: none; color: #fff; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s; }
+        .icon-btn:hover { background: rgba(255,255,255,0.2); }
+        
+        .payment-card.mastercard { background: linear-gradient(135deg, #1a1a2e, #16213e); }
+        .payment-card.amex { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); }
+
         .sidebar-close { display: none; margin-left: auto; cursor: pointer; color: #888; }
         .sidebar-close:hover { color: #000; }
         
@@ -144,6 +192,12 @@
             .chart-section { padding: 1.5rem; margin-bottom: 1.5rem; }
             .user-pill { font-size: 0.75rem; padding: 0.4rem 0.8rem; }
             .header-row { margin-bottom: 1.5rem; }
+            
+            /* Responsive Orders and Payment */
+            .order-body { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .order-action-btn { width: 100%; text-align: center; }
+            .payment-grid { grid-template-columns: 1fr; }
+            .order-header { flex-direction: column; align-items: flex-start; gap: 0.5rem;}
         }
         .mobile-sidebar-toggle { display: none; }
     </style>
@@ -156,9 +210,9 @@
             <i data-lucide="x" class="sidebar-close" onclick="document.getElementById('sidebar').classList.remove('active')"></i>
         </div>
         <nav class="nav-menu">
-            <a href="#" class="nav-item active"><i data-lucide="layout-dashboard"></i> Overview</a>
-            <a href="404.html" class="nav-item"><i data-lucide="package"></i> Orders</a>
-            <a href="404.html" class="nav-item"><i data-lucide="credit-card"></i> Payment Methods</a>
+            <a href="#" id="nav-overview" class="nav-item active" onclick="switchTab('overview')"><i data-lucide="layout-dashboard"></i> Overview</a>
+            <a href="#" id="nav-orders" class="nav-item" onclick="switchTab('orders')"><i data-lucide="package"></i> Orders</a>
+            <a href="#" id="nav-payment" class="nav-item" onclick="switchTab('payment')"><i data-lucide="credit-card"></i> Payment Methods</a>
             
             <a href="Login.html" class="nav-item logout-btn"><i data-lucide="log-out"></i> Log Out</a>
         </nav>
@@ -172,67 +226,173 @@
             </div>
         </div>
 
-        <section class="stats-grid">
-            <div class="stat-card">
-                <h3>Total Spent</h3>
-                <div class="value">$2,450</div>
-            </div>
-            <div class="stat-card">
-                <h3>Active Orders</h3>
-                <div class="value">2</div>
-            </div>
-            <div class="stat-card">
-                <h3>Saved Items</h3>
-                <div class="value">14</div>
-            </div>
-        </section>
+        <!-- OVERVIEW VIEW -->
+        <div id="view-overview" class="dashboard-view active">
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Spent</h3>
+                    <div class="value">$2,450</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Active Orders</h3>
+                    <div class="value">2</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Saved Items</h3>
+                    <div class="value">14</div>
+                </div>
+            </section>
 
-        <section class="chart-section">
-            <div class="chart-header">
-                <h2>Spending History</h2>
-                <span style="color:#666; font-size:0.9rem;">2026</span>
-            </div>
-            <div class="css-chart">
-                <div class="bar-wrap"><div class="bar" style="height: 40%;"></div><span class="label">Q1</span></div>
-                <div class="bar-wrap"><div class="bar" style="height: 70%;"></div><span class="label">Q2</span></div>
-                <div class="bar-wrap"><div class="bar" style="height: 30%;"></div><span class="label">Q3</span></div>
-                <div class="bar-wrap"><div class="bar" style="height: 90%;"></div><span class="label">Q4</span></div>
-            </div>
-        </section>
+            <section class="chart-section">
+                <div class="chart-header">
+                    <h2>Spending History</h2>
+                    <span style="color:#666; font-size:0.9rem;">2026</span>
+                </div>
+                <div class="css-chart">
+                    <div class="bar-wrap"><div class="bar" style="height: 40%;"></div><span class="label">Q1</span></div>
+                    <div class="bar-wrap"><div class="bar" style="height: 70%;"></div><span class="label">Q2</span></div>
+                    <div class="bar-wrap"><div class="bar" style="height: 30%;"></div><span class="label">Q3</span></div>
+                    <div class="bar-wrap"><div class="bar" style="height: 90%;"></div><span class="label">Q4</span></div>
+                </div>
+            </section>
 
-        <section class="recent-purchases">
-            <h2>Recent Orders</h2>
-            <div class="purchase-scroll">
-                <div class="purchase-item">
-                    <img src="assets/shop_item_blazer_cart_1774241017184.webp" alt="Purchased Blazer">
-                    <div class="purchase-info">
-                        <strong>Technical Blazer</strong>
-                        <span>$850</span>
-                        <div style="color: #4caf50; font-size:0.8rem; margin-top:0.5rem;"><i data-lucide="check-circle" style="width:14px; height:14px; vertical-align:text-bottom;"></i> Delivered</div>
+            <section class="recent-purchases">
+                <h2>Recent Orders</h2>
+                <div class="purchase-scroll">
+                    <div class="purchase-item">
+                        <img src="assets/shop_item_blazer_cart_1774241017184.webp" alt="Purchased Blazer">
+                        <div class="purchase-info">
+                            <strong>Technical Blazer</strong>
+                            <span>$850</span>
+                            <div style="color: #4caf50; font-size:0.8rem; margin-top:0.5rem;"><i data-lucide="check-circle" style="width:14px; height:14px; vertical-align:text-bottom;"></i> Delivered</div>
+                        </div>
+                    </div>
+                    <div class="purchase-item">
+                        <img src="assets/shop_item_tote_cart_1774241034471.webp" alt="Purchased Tote">
+                        <div class="purchase-info">
+                            <strong>Utilitarian Tote Bag</strong>
+                            <span>$320</span>
+                            <div style="color: #f57c00; font-size:0.8rem; margin-top:0.5rem;"><i data-lucide="truck" style="width:14px; height:14px; vertical-align:text-bottom;"></i> In Transit</div>
+                        </div>
+                    </div>
+                    <div class="purchase-item">
+                        <img src="assets/shop_item_dress_cart_1774241065849.webp" alt="Purchased Dress">
+                        <div class="purchase-info">
+                            <strong>Asymmetric Dress</strong>
+                            <span>$640</span>
+                            <div style="color: #4caf50; font-size:0.8rem; margin-top:0.5rem;"><i data-lucide="check-circle" style="width:14px; height:14px; vertical-align:text-bottom;"></i> Delivered</div>
+                        </div>
                     </div>
                 </div>
-                <div class="purchase-item">
-                    <img src="assets/shop_item_tote_cart_1774241034471.webp" alt="Purchased Tote">
-                    <div class="purchase-info">
-                        <strong>Utilitarian Tote Bag</strong>
-                        <span>$320</span>
-                        <div style="color: #f57c00; font-size:0.8rem; margin-top:0.5rem;"><i data-lucide="truck" style="width:14px; height:14px; vertical-align:text-bottom;"></i> In Transit</div>
+            </section>
+        </div>
+
+        <!-- ORDERS VIEW -->
+        <div id="view-orders" class="dashboard-view" style="display: none;">
+            <h2 style="font-family: var(--font-serif); margin-bottom: 2rem;">Order History</h2>
+            <div class="orders-list">
+                
+                <div class="order-card">
+                    <div class="order-header">
+                        <div><span class="order-label">Order</span> #ORD-7742-991</div>
+                        <div class="order-date">Placed: Oct 24, 2026</div>
+                    </div>
+                    <div class="order-body">
+                        <img src="assets/shop_item_blazer_cart_1774241017184.webp" alt="Product">
+                        <div class="order-details">
+                            <strong>Technical Blazer</strong>
+                            <div class="order-qty">Qty: 1</div>
+                            <div class="order-price">$850.00</div>
+                        </div>
+                        <div class="order-status delivered"><i data-lucide="check-circle" style="width:16px; height:16px;"></i> Delivered</div>
+                        <button class="order-action-btn" onclick="window.location.href='404.html'">View Invoice</button>
                     </div>
                 </div>
-                <div class="purchase-item">
-                    <img src="assets/shop_item_dress_cart_1774241065849.webp" alt="Purchased Dress">
-                    <div class="purchase-info">
-                        <strong>Asymmetric Dress</strong>
-                        <span>$640</span>
-                        <div style="color: #4caf50; font-size:0.8rem; margin-top:0.5rem;"><i data-lucide="check-circle" style="width:14px; height:14px; vertical-align:text-bottom;"></i> Delivered</div>
+
+                <div class="order-card">
+                    <div class="order-header">
+                        <div><span class="order-label">Order</span> #ORD-8901-443</div>
+                        <div class="order-date">Placed: Nov 12, 2026</div>
+                    </div>
+                    <div class="order-body">
+                        <img src="assets/shop_item_tote_cart_1774241034471.webp" alt="Product">
+                        <div class="order-details">
+                            <strong>Utilitarian Tote Bag</strong>
+                            <div class="order-qty">Qty: 1</div>
+                            <div class="order-price">$320.00</div>
+                        </div>
+                        <div class="order-status transit"><i data-lucide="truck" style="width:16px; height:16px;"></i> In Transit</div>
+                        <button class="order-action-btn" onclick="window.location.href='404.html'">Track Package</button>
                     </div>
                 </div>
+
             </div>
-        </section>
+        </div>
+
+        <!-- PAYMENT METHODS VIEW -->
+        <div id="view-payment" class="dashboard-view" style="display: none;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+                <h2 style="font-family: var(--font-serif); margin: 0;">Payment Methods</h2>
+                <button class="add-payment-btn" onclick="window.location.href='404.html'"><i data-lucide="plus" style="width:18px;height:18px;"></i> Add Method</button>
+            </div>
+            
+            <div class="payment-grid">
+                
+                <div class="payment-card">
+                    <div class="card-brand"><i data-lucide="credit-card" style="width:24px;height:24px;"></i> Visa</div>
+                    <div class="card-number">**** **** **** 4242</div>
+                    <div class="card-details">
+                        <div>
+                            <span class="detail-label">Expires</span>
+                            <div class="detail-val">12/28</div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="icon-btn edit-btn" onclick="window.location.href='404.html'"><i data-lucide="edit-2" style="width:16px;height:16px;"></i></button>
+                            <button class="icon-btn delete-btn" onclick="window.location.href='404.html'"><i data-lucide="trash-2" style="width:16px;height:16px;"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="payment-card mastercard">
+                    <div class="card-brand"><i data-lucide="credit-card" style="width:24px;height:24px;"></i> Mastercard</div>
+                    <div class="card-number">**** **** **** 8851</div>
+                    <div class="card-details">
+                        <div>
+                            <span class="detail-label">Expires</span>
+                            <div class="detail-val">09/27</div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="icon-btn edit-btn" onclick="window.location.href='404.html'"><i data-lucide="edit-2" style="width:16px;height:16px;"></i></button>
+                            <button class="icon-btn delete-btn" onclick="window.location.href='404.html'"><i data-lucide="trash-2" style="width:16px;height:16px;"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </main>
 
     <script>
         lucide.createIcons();
+        
+        function switchTab(tabId) {
+            // Update sidebar active states
+            document.querySelectorAll('.nav-item').forEach(item => {
+                if(item.id.startsWith('nav-')) item.classList.remove('active');
+            });
+            const clickedTab = document.getElementById('nav-' + tabId);
+            if(clickedTab) clickedTab.classList.add('active');
+            
+            // Hide all views, show selected
+            document.querySelectorAll('.dashboard-view').forEach(view => view.style.display = 'none');
+            const targetView = document.getElementById('view-' + tabId);
+            if(targetView) targetView.style.display = 'block';
+
+            // Close sidebar on mobile after clicking
+            if(window.innerWidth <= 1024) {
+                document.getElementById('sidebar').classList.remove('active');
+            }
+        }
     </script>
 </body>
 </html>
