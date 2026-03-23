@@ -10,11 +10,10 @@ hamburger.addEventListener('click', () => {
     menuOpen = !menuOpen;
     mobileMenu.classList.toggle('active');
     
-    const icon = hamburger.querySelector('i');
     if (menuOpen) {
-        icon.setAttribute('data-lucide', 'x');
+        hamburger.innerHTML = '<i data-lucide="x"></i>';
     } else {
-        icon.setAttribute('data-lucide', 'menu');
+        hamburger.innerHTML = '<i data-lucide="menu"></i>';
     }
     lucide.createIcons();
 });
@@ -24,7 +23,7 @@ document.querySelectorAll('.mobile-menu a').forEach(link => {
     link.addEventListener('click', () => {
         menuOpen = false;
         mobileMenu.classList.remove('active');
-        hamburger.querySelector('i').setAttribute('data-lucide', 'menu');
+        hamburger.innerHTML = '<i data-lucide="menu"></i>';
         lucide.createIcons();
     });
 });

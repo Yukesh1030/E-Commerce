@@ -19,6 +19,9 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
 }
 
 body {
@@ -27,6 +30,8 @@ body {
     font-family: var(--font-sans);
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
     /* Subtle blue glow frame effect from reference */
     box-shadow: inset 0 0 100px rgba(151, 187, 255, 0.1);
     min-height: 100vh;
@@ -57,7 +62,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1000;
+    z-index: 1002;
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -129,9 +134,16 @@ header {
 
 .mobile-menu a {
     font-family: var(--font-serif);
-    font-size: 3rem;
+    font-size: 2rem;
     text-transform: uppercase;
-    transform: scaleY(1.5);
+    letter-spacing: 4px;
+    font-weight: 300;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.mobile-menu a:hover {
+    color: var(--accent-color);
 }
 
 /* Hero Section */
