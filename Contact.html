@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | STACKLY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="shop.css">
+    <style>
+        .contact-hero {
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('assets/desktop_footer_1774239121800.webp') no-repeat center center/cover;
+            position: relative;
+            margin-top: 80px;
+        }
+        .contact-hero::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+        }
+        .contact-hero h1 {
+            color: #fff;
+            position: relative;
+            z-index: 1;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-weight: 300;
+        }
+        
+        .contact-form-section {
+            padding: 8rem 5%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        .contact-form textarea { height: 150px; resize: vertical; }
+        .contact-form button {
+            background: #000;
+            color: #fff;
+            padding: 1rem 3rem;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            width: max-content;
+        }
+        
+        .direct-lines {
+            padding: 5rem 5%;
+            background: #f9f9f9;
+            text-align: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .line-box h3 { margin-bottom: 1rem; text-transform: uppercase; }
+        .line-box p { color: #666; font-size: 1.1rem; }
+        
+        .global-offices {
+            padding: 8rem 5%;
+        }
+        .office-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        .office-card img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+        }
+        .office-card h3 { text-transform: uppercase; margin-bottom: 0.5rem; }
+        
+        .support-faq {
+            padding: 8rem 5%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .socials-row {
+            padding: 6rem 5%;
+            background: #000;
+            color: #fff;
+            text-align: center;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        .social-links i { width: 32px; height: 32px; cursor: pointer; transition: 0.3s; }
+        .social-links i:hover { transform: translateY(-5px); color: #ccc; }
+
+        @media (max-width: 768px) {
+            .direct-lines, .office-grid { grid-template-columns: 1fr; }
+            .contact-hero h1 { font-size: 2.5rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    
+    <header id="main-header">
+        <div class="logo">Stackly</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Shop.html">Shop</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li><a href="Stockists.html">Stockists</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <i data-lucide="user" class="icon"></i>
+            <span class="cart-icon-wrapper" id="cart-icon-trigger">
+                <i data-lucide="shopping-bag" class="icon"></i>
+                <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
+            </span>
+            <div class="hamburger" id="hamburger">
+                <i data-lucide="menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="Shop.html">Shop</a>
+        <a href="About.html">About</a>
+        <a href="Contact.html">Contact</a>
+        <a href="Stockists.html">Stockists</a>
+    </div>
+
+    <!-- Cart Drawer -->
+    <div class="cart-drawer-overlay" id="cart-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <!-- ... identical cart drawer ... -->
+        <div class="drawer-header">
+            <h2>YOUR BAG</h2>
+            <button class="close-drawer" id="close-drawer"><i data-lucide="x"></i></button>
+        </div>
+        <div class="drawer-items" id="drawer-items"></div>
+        <div class="drawer-footer">
+            <div class="subtotal-row"><span>SUBTOTAL</span><span id="drawer-subtotal">$0.00</span></div>
+            <button class="checkout-btn" onclick="checkout()">PROCEED TO CHECKOUT</button>
+        </div>
+    </div>
+
+    <main>
+        <!-- Section 1 -->
+        <section class="contact-hero scroll-reveal">
+            <h1>Connect</h1>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="contact-form-section leftreveal">
+            <h2 class="section-title text-center">Inquiries</h2>
+            <form class="contact-form" action="404.html">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <div style="text-align: center;"><button type="submit">Send Message</button></div>
+            </form>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="direct-lines scroll-reveal">
+            <div class="line-box">
+                <h3>Client Services</h3>
+                <p>support@stackly.com</p>
+                <p>+1 800 555 0192</p>
+            </div>
+            <div class="line-box">
+                <h3>Press & PR</h3>
+                <p>press@stackly.com</p>
+                <p>+1 800 555 0199</p>
+            </div>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="global-offices">
+            <h2 class="section-title text-center scroll-reveal">Global HQs</h2>
+            <div class="office-grid">
+                <div class="office-card leftreveal">
+                    <img src="assets/category_apparel_1774239643938.webp" alt="Paris HQ">
+                    <h3>Paris Workspace</h3>
+                    <p>Le Marais, 75003 Paris, France</p>
+                </div>
+                <div class="office-card rightreveal">
+                    <img src="assets/category_objects_1774239660985.webp" alt="Tokyo HQ">
+                    <h3>Tokyo Studio</h3>
+                    <p>Aoyama, Minato City, Tokyo</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5 -->
+        <section class="support-faq scroll-reveal">
+            <h2 class="section-title text-center">Frequent Questions</h2>
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-question">What is your return policy? <i data-lucide="chevron-down"></i></button>
+                    <div class="faq-answer"><p>We accept returns within 14 days of delivery for unworn items with original tags. See full policy.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Do you ship internationally? <i data-lucide="chevron-down"></i></button>
+                    <div class="faq-answer"><p>Yes, we ship globally via express courier. Duties are calculated at checkout.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6 -->
+        <section class="socials-row scroll-reveal">
+            <h2 class="section-title">Join The Conversation</h2>
+            <div class="social-links">
+                <a href="404.html" style="color:white;"><i data-lucide="instagram"></i></a>
+                <a href="404.html" style="color:white;"><i data-lucide="twitter"></i></a>
+                <a href="404.html" style="color:white;"><i data-lucide="facebook"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-newsletter">
+                <h3 class="footer-heading">Join the Stackly Universe</h3>
+                <p class="footer-subtext">Sign up for early access to drops and exclusive content.</p>
+                <form class="newsletter-form" action="404.html">
+                    <input type="email" placeholder="Email Address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            <div class="footer-nav">
+                <!-- Links -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Quick links</h4>
+                    <ul class="footer-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="Shop.html">Shop</a></li>
+                        <li><a href="About.html">About</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                        <li><a href="Stockists.html">Stockists</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Company</h4>
+                    <ul class="footer-list">
+                        <li><a href="404.html">Our Story</a></li>
+                        <li><a href="404.html">Sustainability</a></li>
+                        <li><a href="404.html">Stockists</a></li>
+                        <li><a href="404.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Support</h4>
+                    <ul class="footer-list">
+                        <li><a href="404.html">Shipping</a></li>
+                        <li><a href="404.html">Returns</a></li>
+                        <li><a href="404.html">Privacy Policy</a></li>
+                        <li><a href="404.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-middle"><div class="massive-logo">STACKLY</div></div>
+        <div class="footer-bottom">
+            <div class="footer-info">
+                <span>&copy; 2026 STACKLY. ALL RIGHTS RESERVED.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="shop.js"></script>
+</body>
+</html>

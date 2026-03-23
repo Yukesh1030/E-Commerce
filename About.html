@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | STACKLY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="shop.css">
+    <style>
+        /* Specific About Page Styles */
+        .about-hero {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('assets/hero.webp') no-repeat center center/cover;
+            position: relative;
+            margin-top: 80px;
+        }
+        .about-hero::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+        }
+        .about-hero h1 {
+            color: #fff;
+            position: relative;
+            z-index: 1;
+            font-size: 4rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-weight: 300;
+            font-family: var(--font-serif);
+        }
+        
+        .our-story {
+            padding: 8rem 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .our-story-img img {
+            width: 100%;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+        }
+        
+        .manifesto {
+            background: #050505;
+            color: #fff;
+            padding: 8rem 5%;
+            text-align: center;
+        }
+        .manifesto p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.5rem;
+            line-height: 1.8;
+            font-family: var(--font-serif);
+        }
+        
+        .craft-grid {
+            padding: 8rem 5%;
+            text-align: center;
+        }
+        .craft-grid img {
+            width: 100%;
+            max-width: 800px;
+            margin: 3rem auto 0;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+        
+        .team-section {
+            padding: 8rem 5%;
+            background: #f9f9f9;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        .team-member img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+        }
+        .team-member h3 { margin-top: 1rem; text-transform: uppercase; }
+        
+        .join-us {
+            padding: 8rem 5%;
+            text-align: center;
+        }
+        .join-us a {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 3rem;
+            border: 1px solid #000;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .join-us a:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .our-story, .team-grid { grid-template-columns: 1fr; }
+            .about-hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    
+    <header id="main-header">
+        <div class="logo">Stackly</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Shop.html">Shop</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li><a href="Stockists.html">Stockists</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <i data-lucide="user" class="icon"></i>
+            <span class="cart-icon-wrapper" id="cart-icon-trigger">
+                <i data-lucide="shopping-bag" class="icon"></i>
+                <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
+            </span>
+            <div class="hamburger" id="hamburger">
+                <i data-lucide="menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="Shop.html">Shop</a>
+        <a href="About.html">About</a>
+        <a href="Contact.html">Contact</a>
+        <a href="Stockists.html">Stockists</a>
+    </div>
+
+    <!-- Cart Drawer -->
+    <div class="cart-drawer-overlay" id="cart-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="drawer-header">
+            <h2>YOUR BAG</h2>
+            <button class="close-drawer" id="close-drawer"><i data-lucide="x"></i></button>
+        </div>
+        <div class="drawer-items" id="drawer-items"></div>
+        <div class="drawer-footer">
+            <div class="subtotal-row"><span>SUBTOTAL</span><span id="drawer-subtotal">$0.00</span></div>
+            <p class="tax-info">Shipping and taxes calculated at checkout.</p>
+            <button class="checkout-btn" onclick="checkout()">PROCEED TO CHECKOUT</button>
+        </div>
+    </div>
+
+    <main>
+        <!-- Section 1 -->
+        <section class="about-hero scroll-reveal">
+            <h1>Our Story</h1>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="our-story">
+            <div class="our-story-text leftreveal">
+                <h2 class="section-title">The Genesis</h2>
+                <p>Founded on the principles of extreme minimalism and uncompromising quality, STACKLY was born from a desire to strip away the excess. Every piece is an architectural triumph of fabric.</p>
+            </div>
+            <div class="our-story-img rightreveal">
+                <img src="assets/editorial_bg_1774239696521.webp" alt="Editorial">
+            </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="manifesto scroll-reveal">
+            <p>"We do not design clothes. We design the spaces between the body and the world. Brutalist forms meeting functional technicality."</p>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="craft-grid scroll-reveal">
+            <h2 class="section-title">Absolute Craft</h2>
+            <p>Manufactured in limited quantities. Sourced from the finest technical mills.</p>
+            <img src="assets/craftsmanship_1774239680137.webp" alt="Craftsmanship">
+        </section>
+
+        <!-- Section 5 -->
+        <section class="team-section">
+            <h2 class="section-title text-center scroll-reveal">The Architects</h2>
+            <div class="team-grid">
+                <div class="team-member leftreveal">
+                    <img src="assets/lookbook1_1774239608189.webp" alt="Creative Director">
+                    <h3>Creative Director</h3>
+                </div>
+                <div class="team-member rightreveal">
+                    <img src="assets/lookbook2_1774239625282.webp" alt="Head of Design">
+                    <h3>Head of Design</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6 -->
+        <section class="join-us scroll-reveal">
+            <h2 class="section-title">Shape the Future</h2>
+            <p>We are constantly seeking visionaries to join our atelier.</p>
+            <a href="404.html">View Careers</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-newsletter">
+                <h3 class="footer-heading">Join the Stackly Universe</h3>
+                <p class="footer-subtext">Sign up for early access to drops and exclusive content.</p>
+                <form class="newsletter-form" action="404.html">
+                    <input type="email" placeholder="Email Address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            <div class="footer-nav">
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Quick links</h4>
+                    <ul class="footer-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="Shop.html">Shop</a></li>
+                        <li><a href="About.html">About</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                        <li><a href="Stockists.html">Stockists</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Company</h4>
+                    <ul class="footer-list">
+                        <li><a href="404.html">Our Story</a></li>
+                        <li><a href="404.html">Sustainability</a></li>
+                        <li><a href="404.html">Stockists</a></li>
+                        <li><a href="404.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Support</h4>
+                    <ul class="footer-list">
+                        <li><a href="404.html">Shipping</a></li>
+                        <li><a href="404.html">Returns</a></li>
+                        <li><a href="404.html">Privacy Policy</a></li>
+                        <li><a href="404.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-middle">
+            <div class="massive-logo">STACKLY</div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-info">
+                <span>&copy; 2026 STACKLY. ALL RIGHTS RESERVED.</span>
+                <div class="footer-socials">
+                    <a href="404.html"><i data-lucide="instagram"></i></a>
+                    <a href="404.html"><i data-lucide="twitter"></i></a>
+                    <a href="404.html"><i data-lucide="youtube"></i></a>
+                    <a href="404.html"><i data-lucide="facebook"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="shop.js"></script>
+</body>
+</html>

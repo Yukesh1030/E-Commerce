@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stockists | STACKLY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="shop.css">
+    <style>
+        .stockists-hero {
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('assets/tablet_footer_1774239138072.webp') no-repeat center center/cover;
+            position: relative;
+            margin-top: 80px;
+        }
+        .stockists-hero::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+        }
+        .stockists-hero h1 {
+            color: #fff;
+            position: relative;
+            z-index: 1;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-weight: 300;
+        }
+        
+        .partners-grid {
+            padding: 8rem 5%;
+            background: #fdfdfd;
+            text-align: center;
+        }
+        .logos-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        .partner-logo {
+            padding: 2rem;
+            border: 1px solid #eee;
+            font-size: 1.5rem;
+            font-family: var(--font-serif);
+            color: #333;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .partner-logo:hover {
+            background: #000;
+            color: #fff;
+        }
+        
+        .region-section {
+            padding: 6rem 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .region-section.reverse {
+            background: #050505;
+            color: #fff;
+            direction: rtl; /* simple trick to flip flex/grid visual order, contents ltr */
+        }
+        .region-section.reverse > * { direction: ltr; }
+
+        .region-img img {
+            width: 100%;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+        }
+        .store-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+        .store-list li {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(150,150,150,0.2);
+        }
+        .store-list h3 { text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
+        .store-list p { font-size: 0.95rem; color: #777; }
+        
+        .retail-inquiry {
+            padding: 8rem 5%;
+            text-align: center;
+            background: #f2f2f2;
+        }
+        .retail-inquiry a {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 3rem;
+            background: #000;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .region-section { grid-template-columns: 1fr; }
+            .stockists-hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    
+    <header id="main-header">
+        <div class="logo">Stackly</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Shop.html">Shop</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li><a href="Stockists.html">Stockists</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <i data-lucide="user" class="icon"></i>
+            <span class="cart-icon-wrapper" id="cart-icon-trigger">
+                <i data-lucide="shopping-bag" class="icon"></i>
+                <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
+            </span>
+            <div class="hamburger" id="hamburger">
+                <i data-lucide="menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="Shop.html">Shop</a>
+        <a href="About.html">About</a>
+        <a href="Contact.html">Contact</a>
+        <a href="Stockists.html">Stockists</a>
+    </div>
+
+    <!-- Cart Drawer -->
+    <div class="cart-drawer-overlay" id="cart-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <!-- ... identical cart drawer ... -->
+        <div class="drawer-header">
+            <h2>YOUR BAG</h2>
+            <button class="close-drawer" id="close-drawer"><i data-lucide="x"></i></button>
+        </div>
+        <div class="drawer-items" id="drawer-items"></div>
+        <div class="drawer-footer">
+            <div class="subtotal-row"><span>SUBTOTAL</span><span id="drawer-subtotal">$0.00</span></div>
+            <button class="checkout-btn" onclick="checkout()">PROCEED TO CHECKOUT</button>
+        </div>
+    </div>
+
+    <main>
+        <!-- Section 1 -->
+        <section class="stockists-hero scroll-reveal">
+            <h1>Global Retailers</h1>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="partners-grid scroll-reveal">
+            <h2 class="section-title">Online Partners</h2>
+            <div class="logos-wrapper">
+                <a href="404.html" class="partner-logo">SSENSE</a>
+                <a href="404.html" class="partner-logo">Farfetch</a>
+                <a href="404.html" class="partner-logo">MR PORTER</a>
+                <a href="404.html" class="partner-logo">Matches</a>
+            </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="region-section">
+            <div class="region-img leftreveal">
+                <img src="assets/product1.webp" alt="North America">
+            </div>
+            <div class="region-info rightreveal">
+                <h2 class="section-title" style="margin-bottom: 2rem;">North America</h2>
+                <ul class="store-list">
+                    <li>
+                        <h3>Dover Street Market</h3>
+                        <p>160 Lexington Ave, New York, NY 10016</p>
+                    </li>
+                    <li>
+                        <h3>Maxfield</h3>
+                        <p>8825 Melrose Ave, Los Angeles, CA 90069</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="region-section reverse">
+            <div class="region-info leftreveal">
+                <h2 class="section-title" style="margin-bottom: 2rem; color:#fff;">Europe</h2>
+                <ul class="store-list">
+                    <li>
+                        <h3>The Broken Arm</h3>
+                        <p>12 Rue Perrée, 75003 Paris, France</p>
+                    </li>
+                    <li>
+                        <h3>Machine-A</h3>
+                        <p>13 Brewer St, London W1F 0RH, UK</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="region-img rightreveal">
+                <img src="assets/product2.webp" alt="Europe">
+            </div>
+        </section>
+
+        <!-- Section 5 -->
+        <section class="region-section">
+            <div class="region-img leftreveal">
+                <img src="assets/product3.webp" alt="Asia">
+            </div>
+            <div class="region-info rightreveal">
+                <h2 class="section-title" style="margin-bottom: 2rem;">Asia Pacific</h2>
+                <ul class="store-list">
+                    <li>
+                        <h3>GR8</h3>
+                        <p>Laforet Harajuku 2.5F, 1-11-6 Jingumae, Shibuya-ku, Tokyo</p>
+                    </li>
+                    <li>
+                        <h3>Boon the Shop</h3>
+                        <p>21 Apgujeong-ro 60-gil, Gangnam-gu, Seoul</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 6 -->
+        <section class="retail-inquiry scroll-reveal">
+            <h2 class="section-title">Wholesale Inquiries</h2>
+            <p>Interested in stocking STACKLY? Contact our global sales agency.</p>
+            <a href="404.html">Request Partnership</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-newsletter">
+                <h3 class="footer-heading">Join the Stackly Universe</h3>
+                <p class="footer-subtext">Sign up for early access to drops and exclusive content.</p>
+                <form class="newsletter-form" action="404.html">
+                    <input type="email" placeholder="Email Address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            <div class="footer-nav">
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Quick links</h4>
+                    <ul class="footer-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="Shop.html">Shop</a></li>
+                        <li><a href="About.html">About</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                        <li><a href="Stockists.html">Stockists</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Company</h4>
+                    <ul class="footer-list">
+                        <li><a href="404.html">Our Story</a></li>
+                        <li><a href="404.html">Sustainability</a></li>
+                        <li><a href="404.html">Stockists</a></li>
+                        <li><a href="404.html">Careers</a></li>
+                    </ul>
+                </div>
+                <!-- ... -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Support</h4>
+                    <ul class="footer-list">
+                        <li><a href="404.html">Shipping</a></li>
+                        <li><a href="404.html">Returns</a></li>
+                        <li><a href="404.html">Privacy Policy</a></li>
+                        <li><a href="404.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-middle"><div class="massive-logo">STACKLY</div></div>
+        <div class="footer-bottom">
+            <div class="footer-info">
+                <span>&copy; 2026 STACKLY. ALL RIGHTS RESERVED.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="shop.js"></script>
+</body>
+</html>
