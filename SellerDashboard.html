@@ -132,6 +132,10 @@
         .status.instock { background: #e8f5e9; color: #2e7d32; }
         .status.low { background: #fff3e0; color: #ef6c00; }
 
+        /* Generic table responsiveness */
+        .table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .table-responsive table { min-width: 600px; }
+
         .sidebar-close { display: none; margin-left: auto; cursor: pointer; color: #888; }
         .sidebar-close:hover { color: #fff; }
         
@@ -199,6 +203,19 @@
             .chart-section { padding: 1.5rem; margin-bottom: 1.5rem; }
             .line-chart-area { height: 180px; }
             .inventory-table { padding: 1rem; }
+            .inventory-table table, .inventory-table thead, .inventory-table tbody, .inventory-table th, .inventory-table td, .inventory-table tr { 
+                display: block; 
+            }
+            .inventory-table thead tr { position: absolute; top: -9999px; left: -9999px; }
+            .inventory-table tr { border: 1px solid #eee; margin-bottom: 1rem; border-radius: 8px; padding: 1rem; }
+            .inventory-table td { 
+                border: none; position: relative; padding-left: 50% !important; text-align: right; margin-bottom: 0.5rem; 
+            }
+            .inventory-table td::before { 
+                content: attr(data-label); position: absolute; left: 1rem; width: 45%; text-align: left; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; color: #888;
+            }
+            .inventory-table .product-cell { justify-content: flex-end; padding-left: 0 !important; margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 1rem; }
+            .inventory-table .product-cell img { width: 50px; height: 50px; }
             .user-pill { font-size: 0.75rem; padding: 0.4rem 0.8rem; }
             .header-row { margin-bottom: 1.5rem; }
             
@@ -252,7 +269,7 @@
                 </a>
             </div>
             <div class="user-pill">
-                Welcome, Stakeholder <i data-lucide="user" style="width: 16px; height: 16px;"></i>
+                Welcome, Seller <i data-lucide="user" style="width: 16px; height: 16px;"></i>
             </div>
         </div>
 
@@ -309,34 +326,34 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="product-cell">
+                                <td class="product-cell" data-label="Product">
                                     <img src="assets/drop5_jacket_1774241890555.webp" alt="Jacket">
                                     <strong>Technical Minimalist Jacket</strong>
                                 </td>
-                                <td>$650.00</td>
-                                <td>84</td>
-                                <td><span class="status instock">In Stock</span></td>
-                                <td><a href="404.html" style="color:#2874f0; text-decoration:none;">Manage</a></td>
+                                <td data-label="Price">$650.00</td>
+                                <td data-label="Sales">84</td>
+                                <td data-label="Status"><span class="status instock">In Stock</span></td>
+                                <td data-label="Action"><a href="404.html" style="color:#2874f0; text-decoration:none;">Manage</a></td>
                             </tr>
                             <tr>
-                                <td class="product-cell">
+                                <td class="product-cell" data-label="Product">
                                     <img src="assets/drop5_bag_1774241922238.webp" alt="Bag">
                                     <strong>Utilitarian Canvas Bag</strong>
                                 </td>
-                                <td>$320.00</td>
-                                <td>112</td>
-                                <td><span class="status low">Low Stock</span></td>
-                                <td><a href="404.html" style="color:#2874f0; text-decoration:none;">Manage</a></td>
+                                <td data-label="Price">$320.00</td>
+                                <td data-label="Sales">112</td>
+                                <td data-label="Status"><span class="status low">Low Stock</span></td>
+                                <td data-label="Action"><a href="404.html" style="color:#2874f0; text-decoration:none;">Manage</a></td>
                             </tr>
                             <tr>
-                                <td class="product-cell">
+                                <td class="product-cell" data-label="Product">
                                     <img src="assets/drop5_boots_1774241938251.webp" alt="Boots">
                                     <strong>Industrial Combat Boots</strong>
                                 </td>
-                                <td>$890.00</td>
-                                <td>45</td>
-                                <td><span class="status instock">In Stock</span></td>
-                                <td><a href="404.html" style="color:#2874f0; text-decoration:none;">Manage</a></td>
+                                <td data-label="Price">$890.00</td>
+                                <td data-label="Sales">45</td>
+                                <td data-label="Status"><span class="status instock">In Stock</span></td>
+                                <td data-label="Action"><a href="404.html" style="color:#2874f0; text-decoration:none;">Manage</a></td>
                             </tr>
                         </tbody>
                     </table>
