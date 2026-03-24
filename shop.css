@@ -377,7 +377,44 @@ header.shop-header {
     }
 }
 
+@media (max-width: 768px) {
+    .filter-bar {
+        padding: 0 1.5rem !important;
+    }
+    .category-toggles {
+        gap: 1rem;
+        overflow-x: auto;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;  /* IE and Edge */
+        -webkit-overflow-scrolling: touch;
+    }
+    .category-toggles::-webkit-scrollbar {
+        display: none; /* Safari and Chrome */
+    }
+    .cat-btn {
+        font-size: 0.85rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+    .filter-btn {
+        font-size: 0.8rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+        margin-left: auto;
+        padding-left: 1rem;
+    }
+}
+
 @media (max-width: 640px) {
+    .filter-bar {
+        padding: 0 1rem !important;
+    }
+    .category-toggles {
+        gap: 0.75rem;
+    }
+    .cat-btn {
+        font-size: 0.8rem;
+    }
     .product-listing {
         grid-template-columns: 1fr;
     }
