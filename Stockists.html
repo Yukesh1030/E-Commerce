@@ -112,23 +112,25 @@
         }
 
         /* New Sections Styles */
-        .distro-nexus { padding: 10rem 5%; background: #050505; color: #fff; text-align: center; overflow: hidden; position: relative; }
-        .map-container { position: relative; max-width: 1100px; margin: 6rem auto; aspect-ratio: 2/1; border: 1px solid rgba(255,255,255,0.05); background: radial-gradient(circle at center, rgba(255,255,255,0.03) 0%, transparent 70%); overflow: hidden; }
-        .map-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('assets/world-map.svg') no-repeat center center / 100% 100%; filter: invert(1) opacity(0.2); pointer-events: none; }
-        .map-dot { position: absolute; width: 8px; height: 8px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #fff; cursor: pointer; transform: translate(-50%, -50%); z-index: 2; text-decoration: none; display: block; }
-        .map-dot::after { content: ''; position: absolute; top: 50%; left: 50%; width: 24px; height: 24px; border: 1px solid rgba(255,255,255,0.5); border-radius: 50%; transform: translate(-50%, -50%); animation: dotPulse 2s infinite; pointer-events: none; }
-        .map-dot-label { position: absolute; top: -30px; left: 50%; transform: translateX(-50%); background: #fff; color: #000; padding: 4px 10px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; white-space: nowrap; opacity: 0; transition: 0.3s; pointer-events: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 3; }
+        .distro-nexus { padding: 10rem 5%; background: #fff; color: #000; text-align: center; overflow: hidden; position: relative; }
+        .distro-nexus h2.section-title { color: #000 !important; }
+        .distro-nexus p { opacity: 0.5 !important; color: #000 !important; }
+        .map-container { position: relative; max-width: 1100px; margin: 6rem auto; aspect-ratio: 2/1; border: 1px solid #eaeaea; background: #fff; overflow: hidden; }
+        .map-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('assets/world-map.webp') no-repeat center center / 100% 100%; filter: opacity(0.85); pointer-events: none; }
+        .map-dot { position: absolute; width: 8px; height: 8px; background: #000; border-radius: 50%; box-shadow: 0 0 10px rgba(0,0,0,0.3); cursor: pointer; transform: translate(-50%, -50%); z-index: 2; text-decoration: none; display: block; }
+        .map-dot::after { content: ''; position: absolute; top: 50%; left: 50%; width: 24px; height: 24px; border: 1px solid rgba(0,0,0,0.4); border-radius: 50%; transform: translate(-50%, -50%); animation: dotPulse 2s infinite; pointer-events: none; }
+        .map-dot-label { position: absolute; top: -30px; left: 50%; transform: translateX(-50%); background: #000; color: #fff; padding: 4px 10px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; white-space: nowrap; opacity: 0; transition: 0.3s; pointer-events: none; box-shadow: 0 4px 10px rgba(0,0,0,0.15); z-index: 3; }
         .map-dot:hover .map-dot-label { opacity: 1; top: -35px; }
         @keyframes dotPulse { 0% { width: 8px; height: 8px; opacity: 1; } 100% { width: 32px; height: 32px; opacity: 0; } }
 
-        .popup-archives { padding: 10rem 5%; background: #fff; }
+        .popup-archives { padding: 10rem 5% 5rem; background: #fff; }
         .popup-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 5rem; }
         .popup-card { padding: 4rem 3rem; border: 1px solid #f0f0f0; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); position: relative; }
         .popup-card:hover { transform: translateY(-10px); background: #000; color: #fff; border-color: #000; }
         .popup-status { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 3px; padding: 6px 15px; border: 1px solid currentColor; margin-bottom: 2rem; display: inline-block; font-weight: 700; }
         .popup-card h3 { font-size: 1.5rem; text-transform: uppercase; margin-bottom: 1rem; }
 
-        .retailer-manifesto { padding: 12rem 5%; text-align: center; border-top: 1px solid #f0f0f0; }
+        .retailer-manifesto { padding: 6rem 5%; text-align: center; border-top: 1px solid #f0f0f0; }
         .manifesto-title { font-size: clamp(2rem, 6vw, 5rem); font-family: var(--font-serif); line-height: 1; text-transform: uppercase; letter-spacing: -3px; margin-bottom: 3rem; }
         .manifesto-line { height: 2px; width: 100px; background: #000; margin: 0 auto; }
 
@@ -191,6 +193,14 @@
         .v-tr { top: 15px; right: 15px; border-left: none; border-bottom: none; }
         .v-bl { bottom: 15px; left: 15px; border-right: none; border-top: none; }
         .v-br { bottom: 15px; right: 15px; border-left: none; border-top: none; }
+        
+        /* QR Code Access Graphic - Single Large */
+        .boutique-qr { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; filter: invert(1); opacity: 0.15; z-index: 1;
+            mix-blend-mode: screen; transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .exclusive-visual:hover .boutique-qr { opacity: 0.4; transform: scale(1.05); }
 
         /* Desktop specific expansions */
         @media (min-width: 992px) {
@@ -246,7 +256,7 @@
         }
         @keyframes slowSpin { 100% { transform: rotate(360deg); } }
 
-        .sales-nexus { padding: 15rem 5%; text-align: center; background: #050505; color: #fff; overflow: hidden; }
+        .sales-nexus { padding: 15rem 5% 5rem; text-align: center; background: #050505; color: #fff; overflow: hidden; }
         .nexus-hero { font-size: clamp(3rem, 12vw, 15rem); font-family: var(--font-serif); text-transform: uppercase; line-height: 0.8; letter-spacing: -8px; margin-bottom: 4rem; }
         .nexus-link { font-size: 1.25rem; text-transform: uppercase; letter-spacing: 3px; border-bottom: 2px solid #fff; padding-bottom: 10px; transition: 0.3s; }
         .nexus-link:hover { padding-bottom: 20px; opacity: 0.6; }
@@ -258,6 +268,7 @@
         }
 
         @media (min-width: 992px) {
+            .retailer-manifesto { padding: 6rem 5%; }
             .flagship-experience { padding: 12rem 5%; }
             .experience-grid { grid-template-columns: 1fr 1fr; gap: 4rem; }
             .exp-box { padding: 4rem; }
@@ -476,6 +487,7 @@
                 </div>
                 <div class="exclusive-visual rightreveal">
                     <span class="exclusive-tag">Boutique Only</span>
+                    <img src="assets/qrcode.webp" alt="Access Code" class="boutique-qr">
                     <div class="scanner-line"></div>
                     <div class="visual-corner v-tl"></div>
                     <div class="visual-corner v-tr"></div>
