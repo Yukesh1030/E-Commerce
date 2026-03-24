@@ -378,6 +378,7 @@ header.shop-header {
 }
 
 @media (max-width: 768px) {
+    .product-grid-container { padding: 4rem 1.5rem; }
     .filter-bar {
         padding: 0 1.5rem !important;
     }

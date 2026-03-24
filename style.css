@@ -269,6 +269,7 @@ header.scrolled {
 
 .product-info {
     padding: 1.5rem 0;
+    text-align: center;
 }
 
 .product-name {
@@ -794,6 +795,7 @@ cite {
 }
 
 @media (max-width: 768px) {
+    .products { padding: 4rem 1.5rem; }
     .category-split { flex-direction: column; height: auto; }
     .split-item { height: 50vh; }
     .craft-container { grid-template-columns: 1fr; }
