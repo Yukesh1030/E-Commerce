@@ -418,6 +418,7 @@ header.shop-header {
     }
     .product-listing {
         grid-template-columns: 1fr;
+        justify-items: center;
     }
     
     .cart-drawer {

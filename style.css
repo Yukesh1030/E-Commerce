@@ -269,7 +269,7 @@ header.scrolled {
 
 .product-info {
     padding: 1.5rem 0;
-    text-align: center;
+    text-align: center !important;
 }
 
 .product-name {
@@ -277,12 +277,14 @@ header.scrolled {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
     text-transform: uppercase;
+    text-align: center !important;
 }
 
 .product-price {
     font-weight: 600;
     font-size: 0.9rem;
     opacity: 0.7;
+    text-align: center !important;
 }
 
 /* About Section */
@@ -796,6 +798,8 @@ cite {
 
 @media (max-width: 768px) {
     .products { padding: 4rem 1.5rem; }
+    .product-grid { grid-template-columns: 1fr; gap: 2rem; justify-items: center; }
+    .product-card { width: 100%; max-width: 400px; }
     .category-split { flex-direction: column; height: auto; }
     .split-item { height: 50vh; }
     .craft-container { grid-template-columns: 1fr; }
