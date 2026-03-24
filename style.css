@@ -502,7 +502,8 @@ header.scrolled {
         width: 100%;
     }
     .massive-logo {
-        font-size: 20vw;
+        font-size: 16vw;
+        letter-spacing: -0.5vw;
     }
     .footer-info {
         flex-direction: column;
