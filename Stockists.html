@@ -113,10 +113,13 @@
 
         /* New Sections Styles */
         .distro-nexus { padding: 10rem 5%; background: #050505; color: #fff; text-align: center; overflow: hidden; position: relative; }
-        .map-container { position: relative; max-width: 1100px; margin: 6rem auto; aspect-ratio: 16/9; border: 1px solid rgba(255,255,255,0.05); background: radial-gradient(circle at center, rgba(255,255,255,0.03) 0%, transparent 70%); }
-        .map-dot { position: absolute; width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 15px #fff; }
-        .map-dot::after { content: ''; position: absolute; top: -5px; left: -5px; width: 20px; height: 20px; border: 1px solid #fff; border-radius: 50%; animation: dotPulse 2s infinite; }
-        @keyframes dotPulse { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(3); opacity: 0; } }
+        .map-container { position: relative; max-width: 1100px; margin: 6rem auto; aspect-ratio: 2/1; border: 1px solid rgba(255,255,255,0.05); background: radial-gradient(circle at center, rgba(255,255,255,0.03) 0%, transparent 70%); overflow: hidden; }
+        .map-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('assets/world-map.svg') no-repeat center center / 100% 100%; filter: invert(1) opacity(0.2); pointer-events: none; }
+        .map-dot { position: absolute; width: 8px; height: 8px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #fff; cursor: pointer; transform: translate(-50%, -50%); z-index: 2; text-decoration: none; display: block; }
+        .map-dot::after { content: ''; position: absolute; top: 50%; left: 50%; width: 24px; height: 24px; border: 1px solid rgba(255,255,255,0.5); border-radius: 50%; transform: translate(-50%, -50%); animation: dotPulse 2s infinite; pointer-events: none; }
+        .map-dot-label { position: absolute; top: -30px; left: 50%; transform: translateX(-50%); background: #fff; color: #000; padding: 4px 10px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; white-space: nowrap; opacity: 0; transition: 0.3s; pointer-events: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 3; }
+        .map-dot:hover .map-dot-label { opacity: 1; top: -35px; }
+        @keyframes dotPulse { 0% { width: 8px; height: 8px; opacity: 1; } 100% { width: 32px; height: 32px; opacity: 0; } }
 
         .popup-archives { padding: 10rem 5%; background: #fff; }
         .popup-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 5rem; }
@@ -134,11 +137,66 @@
         @keyframes statEntrance { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         .stat-label { text-transform: uppercase; letter-spacing: 4px; font-size: 0.75rem; color: #999; font-weight: 600; }
 
-        .exclusives-section { padding: 10rem 5%; background: #000; color: #fff; }
-        .exclusive-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 6rem; align-items: center; }
-        .exclusive-text h2 { font-size: 3.5rem; text-transform: uppercase; margin-bottom: 2rem; line-height: 1.1; }
-        .exclusive-visual { height: 500px; background: repeating-linear-gradient(45deg, #111, #111 2px, #000 2px, #000 20px); border: 1px solid #333; position: relative; }
-        .exclusive-tag { position: absolute; top: 2rem; left: 2rem; background: #fff; color: #000; padding: 0.5rem 1rem; text-transform: uppercase; font-weight: 900; font-size: 0.8rem; }
+        /* Mobile-First Exclusives Section */
+        .exclusives-section { padding: 6rem 5%; background: #000; color: #fff; overflow: hidden; }
+        .exclusive-grid { display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: center; }
+        .exclusive-text h2 { font-size: clamp(2.5rem, 8vw, 3.5rem); text-transform: uppercase; margin-bottom: 1.5rem; line-height: 1.1; letter-spacing: -1px; }
+        .exclusive-text p { font-size: clamp(1rem, 3vw, 1.1rem); color: rgba(255,255,255,0.7); line-height: 1.6; }
+        
+        /* Animated Tech Visual Container */
+        .exclusive-visual { 
+            height: clamp(300px, 60vh, 500px); 
+            background: repeating-linear-gradient(45deg, #111, #111 2px, #050505 2px, #050505 20px); 
+            background-size: 28.28px 28.28px;
+            border: 1px solid rgba(255,255,255,0.1); 
+            position: relative; 
+            overflow: hidden;
+            animation: slideBg 1.5s linear infinite;
+        }
+        @keyframes slideBg { 0% { background-position: 0 0; } 100% { background-position: 28.28px 28.28px; } }
+        
+        /* Animated Centered Boutique Tag */
+        .exclusive-tag { 
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+            background: #fff; color: #000; padding: 1rem 2rem; 
+            text-transform: uppercase; font-weight: 900; font-size: clamp(0.9rem, 4vw, 1.1rem); 
+            letter-spacing: 3px; white-space: nowrap;
+            box-shadow: 0 0 20px rgba(255,255,255,0.2);
+            animation: tagPulse 3s infinite ease-in-out;
+            z-index: 2;
+        }
+        @keyframes tagPulse { 
+            0%, 100% { box-shadow: 0 0 10px rgba(255,255,255,0.1); transform: translate(-50%, -50%) scale(1); } 
+            50% { box-shadow: 0 0 40px rgba(255,255,255,0.6); transform: translate(-50%, -50%) scale(1.05); } 
+        }
+        
+        /* Radar Scanner Line */
+        .scanner-line { 
+            position: absolute; top: 0; left: 0; right: 0; height: 1.5px; 
+            background: #fff; box-shadow: 0 0 15px 2px rgba(255,255,255,0.8); 
+            opacity: 0; animation: scanLine 4s ease-in-out infinite; z-index: 1; 
+        }
+        @keyframes scanLine { 
+            0% { top: 0; opacity: 0; } 
+            15% { opacity: 0.8; } 
+            50% { top: 100%; opacity: 0.1; } 
+            85% { opacity: 0.8; } 
+            100% { top: 0; opacity: 0; } 
+        }
+        
+        /* Sci-Fi Targeting Corners */
+        .visual-corner { position: absolute; width: 30px; height: 30px; border: 2px solid rgba(255,255,255,0.15); transition: 0.4s; z-index: 1; }
+        .exclusive-visual:hover .visual-corner { border-color: rgba(255,255,255,1); width: 40px; height: 40px; }
+        .v-tl { top: 15px; left: 15px; border-right: none; border-bottom: none; }
+        .v-tr { top: 15px; right: 15px; border-left: none; border-bottom: none; }
+        .v-bl { bottom: 15px; left: 15px; border-right: none; border-top: none; }
+        .v-br { bottom: 15px; right: 15px; border-left: none; border-top: none; }
+
+        /* Desktop specific expansions */
+        @media (min-width: 992px) {
+            .exclusives-section { padding: 10rem 5%; }
+            .exclusive-grid { grid-template-columns: 1.2fr 1fr; gap: 6rem; }
+        }
 
         .proxies-section { padding: 8rem 5%; }
         .proxy-table { width: 100%; border-collapse: collapse; margin-top: 4rem; }
@@ -148,10 +206,45 @@
         .proxy-name { font-size: 2.5rem; font-family: var(--font-serif); text-transform: uppercase; letter-spacing: -1px; }
         .proxy-region { text-align: right; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; color: #999; }
 
-        .flagship-experience { padding: 12rem 5%; background: #fff; }
-        .experience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .exp-box { padding: 4rem; background: #000; color: #fff; }
-        .exp-box h3 { font-size: 2rem; text-transform: uppercase; margin-bottom: 1.5rem; }
+        /* Mobile-First Flagship Experience */
+        .flagship-experience { padding: 6rem 5%; background: #fff; overflow: hidden; }
+        .experience-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; }
+        .exp-box { padding: 3rem; background: #000; color: #fff; position: relative; z-index: 2; }
+        .exp-box h3 { font-size: clamp(1.5rem, 5vw, 2.5rem); text-transform: uppercase; margin-bottom: 1rem; letter-spacing: 1px; }
+        
+        /* Animated Brutalist Kinetic Visual */
+        .experience-visual {
+            height: clamp(300px, 50vh, 500px); background: #fdfdfd; border: 1px solid #eaeaea;
+            position: relative; overflow: hidden; display: flex; align-items: flex-end; justify-content: space-evenly; padding: 0 10%;
+        }
+        
+        .pillar {
+            width: clamp(20px, 5vw, 50px); background: #111; box-shadow: 10px 0 20px rgba(0,0,0,0.05);
+            animation: pillarMove ease-in-out infinite alternate; transform-origin: bottom; position: relative; z-index: 2;
+        }
+        .p1 { height: 40%; animation-duration: 4s; animation-delay: 0s; }
+        .p2 { height: 75%; animation-duration: 5.5s; animation-delay: -1s; background: #0a0a0a; }
+        .p3 { height: 35%; animation-duration: 3.5s; animation-delay: -2s; background: #222; }
+        .p4 { height: 85%; animation-duration: 6s; animation-delay: -3.5s; }
+        .p5 { height: 50%; animation-duration: 4.5s; animation-delay: -1.5s; background: #1a1a1a; }
+        
+        @keyframes pillarMove { 0% { transform: scaleY(0.9); } 100% { transform: scaleY(1.1); } }
+        
+        .floating-circle {
+            position: absolute; top: 40%; left: 50%; width: clamp(150px, 40vw, 300px); aspect-ratio: 1;
+            border: 1px solid #000; border-radius: 50%; transform: translate(-50%, -50%);
+            animation: ambientPulse 8s cubic-bezier(0.4, 0, 0.2, 1) infinite; z-index: 1;
+        }
+        .floating-circle::before {
+            content: ''; position: absolute; top: -15%; left: -15%; width: 130%; height: 130%;
+            border: 1px dashed rgba(0,0,0,0.3); border-radius: 50%; animation: slowSpin 25s linear infinite;
+        }
+        
+        @keyframes ambientPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); border-color: rgba(0,0,0,0.1); }
+            50% { transform: translate(-50%, -50%) scale(1.05); border-color: rgba(0,0,0,0.6); box-shadow: 0 0 40px rgba(0,0,0,0.05); }
+        }
+        @keyframes slowSpin { 100% { transform: rotate(360deg); } }
 
         .sales-nexus { padding: 15rem 5%; text-align: center; background: #050505; color: #fff; overflow: hidden; }
         .nexus-hero { font-size: clamp(3rem, 12vw, 15rem); font-family: var(--font-serif); text-transform: uppercase; line-height: 0.8; letter-spacing: -8px; margin-bottom: 4rem; }
@@ -159,9 +252,15 @@
         .nexus-link:hover { padding-bottom: 20px; opacity: 0.6; }
 
         @media (max-width: 992px) {
-            .exclusive-grid, .experience-grid { grid-template-columns: 1fr; gap: 4rem; }
+            .experience-grid { grid-template-columns: 1fr; gap: 4rem; }
             .proxy-name { font-size: 1.5rem; }
             .nexus-hero { letter-spacing: -2px; }
+        }
+
+        @media (min-width: 992px) {
+            .flagship-experience { padding: 12rem 5%; }
+            .experience-grid { grid-template-columns: 1fr 1fr; gap: 4rem; }
+            .exp-box { padding: 4rem; }
         }
     </style>
 </head>
@@ -301,14 +400,23 @@
         <section class="distro-nexus">
             <h2 class="section-title scroll-reveal" style="color:#fff;">Global Connectivity</h2>
             <div class="map-container scroll-reveal">
-                <!-- Dot placements (Conceptual positions) -->
-                <div class="map-dot" style="top: 35%; left: 20%;"></div> <!-- NYC -->
-                <div class="map-dot" style="top: 45%; left: 15%;"></div> <!-- LA -->
-                <div class="map-dot" style="top: 25%; left: 48%;"></div> <!-- London -->
-                <div class="map-dot" style="top: 30%; left: 52%;"></div> <!-- Berlin -->
-                <div class="map-dot" style="top: 35%; left: 80%;"></div> <!-- Tokyo -->
-                <div class="map-dot" style="top: 40%; left: 82%;"></div> <!-- Seoul -->
-                <div class="map-dot" style="top: 65%; left: 78%;"></div> <!-- Sydney -->
+                <div class="map-bg"></div>
+                <!-- Requested Dot placements -->
+                <a href="404.html" class="map-dot" style="top: 27.3%; left: 29.4%;"> <!-- NYC -->
+                    <span class="map-dot-label">New York, USA</span>
+                </a>
+                <a href="404.html" class="map-dot" style="top: 21.3%; left: 50%;"> <!-- London -->
+                    <span class="map-dot-label">London, UK</span>
+                </a>
+                <a href="404.html" class="map-dot" style="top: 19%; left: 60.4%;"> <!-- Moscow -->
+                    <span class="map-dot-label">Moscow, Russia</span>
+                </a>
+                <a href="404.html" class="map-dot" style="top: 41.5%; left: 70.2%;"> <!-- Salem -->
+                    <span class="map-dot-label">Salem, Tamil Nadu</span>
+                </a>
+                <a href="404.html" class="map-dot" style="top: 63.2%; left: 87.2%;"> <!-- Central AUS -->
+                    <span class="map-dot-label">Central AUS</span>
+                </a>
             </div>
             <p class="scroll-reveal" style="opacity:0.4;">Activating global nodes within the Stackly network.</p>
         </section>
@@ -368,6 +476,11 @@
                 </div>
                 <div class="exclusive-visual rightreveal">
                     <span class="exclusive-tag">Boutique Only</span>
+                    <div class="scanner-line"></div>
+                    <div class="visual-corner v-tl"></div>
+                    <div class="visual-corner v-tr"></div>
+                    <div class="visual-corner v-bl"></div>
+                    <div class="visual-corner v-br"></div>
                 </div>
             </div>
         </section>
@@ -394,7 +507,15 @@
         <!-- NEW Section 13: The Flagship Experience -->
         <section class="flagship-experience">
             <div class="experience-grid">
-                <div class="experience-visual leftreveal" style="height:400px; background:#f0f0f0; border:1px solid #ddd;"></div>
+                <div class="experience-visual leftreveal">
+                    <!-- Brutalist ambient kinetic art -->
+                    <div class="pillar p1"></div>
+                    <div class="pillar p2"></div>
+                    <div class="pillar p3"></div>
+                    <div class="pillar p4"></div>
+                    <div class="pillar p5"></div>
+                    <div class="floating-circle"></div>
+                </div>
                 <div class="exp-box rightreveal">
                     <h3>Atelier Standards</h3>
                     <p>Every Stackly stockist is mandated to provide a singular sensory environment. Brutalist fixtures, ambient soundscapes, and calculated scent profiles create the complete universe.</p>

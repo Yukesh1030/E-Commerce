@@ -177,9 +177,9 @@
         <section class="contact-form-section leftreveal">
             <h2 class="section-title text-center">Inquiries</h2>
             <form class="contact-form" action="404.html">
-                <input type="text" placeholder="Full Name" required>
+                <input type="text" placeholder="Full Name" pattern="[A-Za-z\s]+" title="Special characters and numbers are not allowed. Please enter only alphabets and spaces." required>
                 <input type="email" placeholder="Email Address" required>
-                <textarea placeholder="Your Message" required></textarea>
+                <textarea placeholder="Your Message" minlength="5" title="Message must be at least 5 characters long." required></textarea>
                 <div style="text-align: center;"><button type="submit">Send Message</button></div>
             </form>
         </section>
