@@ -21,9 +21,7 @@ if(overlay) overlay.addEventListener('click', toggleCart);
 
 // Global function so components can add items
 window.addToCart = function(name, price) {
-    cart.push({ name, price });
-    updateCartUI();
-    if (drawer && !drawer.classList.contains('active')) toggleCart();
+    window.location.href = "404.html";
 }
 
 function updateCartUI() {

@@ -110,6 +110,59 @@
             .region-section { grid-template-columns: 1fr; }
             .stockists-hero h1 { font-size: 2.5rem; }
         }
+
+        /* New Sections Styles */
+        .distro-nexus { padding: 10rem 5%; background: #050505; color: #fff; text-align: center; overflow: hidden; position: relative; }
+        .map-container { position: relative; max-width: 1100px; margin: 6rem auto; aspect-ratio: 16/9; border: 1px solid rgba(255,255,255,0.05); background: radial-gradient(circle at center, rgba(255,255,255,0.03) 0%, transparent 70%); }
+        .map-dot { position: absolute; width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 15px #fff; }
+        .map-dot::after { content: ''; position: absolute; top: -5px; left: -5px; width: 20px; height: 20px; border: 1px solid #fff; border-radius: 50%; animation: dotPulse 2s infinite; }
+        @keyframes dotPulse { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(3); opacity: 0; } }
+
+        .popup-archives { padding: 10rem 5%; background: #fff; }
+        .popup-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 5rem; }
+        .popup-card { padding: 4rem 3rem; border: 1px solid #f0f0f0; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); position: relative; }
+        .popup-card:hover { transform: translateY(-10px); background: #000; color: #fff; border-color: #000; }
+        .popup-status { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 3px; padding: 6px 15px; border: 1px solid currentColor; margin-bottom: 2rem; display: inline-block; font-weight: 700; }
+        .popup-card h3 { font-size: 1.5rem; text-transform: uppercase; margin-bottom: 1rem; }
+
+        .retailer-manifesto { padding: 12rem 5%; text-align: center; border-top: 1px solid #f0f0f0; }
+        .manifesto-title { font-size: clamp(2rem, 6vw, 5rem); font-family: var(--font-serif); line-height: 1; text-transform: uppercase; letter-spacing: -3px; margin-bottom: 3rem; }
+        .manifesto-line { height: 2px; width: 100px; background: #000; margin: 0 auto; }
+
+        .global-stats { padding: 8rem 5%; background: #f9f9f9; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 4rem; text-align: center; }
+        .stat-val { font-size: 6rem; font-family: var(--font-serif); font-weight: 900; line-height: 1; display: block; margin-bottom: 1rem; animation: statEntrance 1.5s ease-out; }
+        @keyframes statEntrance { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .stat-label { text-transform: uppercase; letter-spacing: 4px; font-size: 0.75rem; color: #999; font-weight: 600; }
+
+        .exclusives-section { padding: 10rem 5%; background: #000; color: #fff; }
+        .exclusive-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 6rem; align-items: center; }
+        .exclusive-text h2 { font-size: 3.5rem; text-transform: uppercase; margin-bottom: 2rem; line-height: 1.1; }
+        .exclusive-visual { height: 500px; background: repeating-linear-gradient(45deg, #111, #111 2px, #000 2px, #000 20px); border: 1px solid #333; position: relative; }
+        .exclusive-tag { position: absolute; top: 2rem; left: 2rem; background: #fff; color: #000; padding: 0.5rem 1rem; text-transform: uppercase; font-weight: 900; font-size: 0.8rem; }
+
+        .proxies-section { padding: 8rem 5%; }
+        .proxy-table { width: 100%; border-collapse: collapse; margin-top: 4rem; }
+        .proxy-row { border-bottom: 1px solid #eee; transition: background 0.3s; }
+        .proxy-row:hover { background: #fafafa; }
+        .proxy-row td { padding: 2.5rem 0; }
+        .proxy-name { font-size: 2.5rem; font-family: var(--font-serif); text-transform: uppercase; letter-spacing: -1px; }
+        .proxy-region { text-align: right; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; color: #999; }
+
+        .flagship-experience { padding: 12rem 5%; background: #fff; }
+        .experience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .exp-box { padding: 4rem; background: #000; color: #fff; }
+        .exp-box h3 { font-size: 2rem; text-transform: uppercase; margin-bottom: 1.5rem; }
+
+        .sales-nexus { padding: 15rem 5%; text-align: center; background: #050505; color: #fff; overflow: hidden; }
+        .nexus-hero { font-size: clamp(3rem, 12vw, 15rem); font-family: var(--font-serif); text-transform: uppercase; line-height: 0.8; letter-spacing: -8px; margin-bottom: 4rem; }
+        .nexus-link { font-size: 1.25rem; text-transform: uppercase; letter-spacing: 3px; border-bottom: 2px solid #fff; padding-bottom: 10px; transition: 0.3s; }
+        .nexus-link:hover { padding-bottom: 20px; opacity: 0.6; }
+
+        @media (max-width: 992px) {
+            .exclusive-grid, .experience-grid { grid-template-columns: 1fr; gap: 4rem; }
+            .proxy-name { font-size: 1.5rem; }
+            .nexus-hero { letter-spacing: -2px; }
+        }
     </style>
 </head>
 <body>
@@ -242,6 +295,119 @@
             <h2 class="section-title">Wholesale Inquiries</h2>
             <p>Interested in stocking STACKLY? Contact our global sales agency.</p>
             <a href="404.html">Request Partnership</a>
+        </section>
+
+        <!-- NEW Section 7: Distro Nexus -->
+        <section class="distro-nexus">
+            <h2 class="section-title scroll-reveal" style="color:#fff;">Global Connectivity</h2>
+            <div class="map-container scroll-reveal">
+                <!-- Dot placements (Conceptual positions) -->
+                <div class="map-dot" style="top: 35%; left: 20%;"></div> <!-- NYC -->
+                <div class="map-dot" style="top: 45%; left: 15%;"></div> <!-- LA -->
+                <div class="map-dot" style="top: 25%; left: 48%;"></div> <!-- London -->
+                <div class="map-dot" style="top: 30%; left: 52%;"></div> <!-- Berlin -->
+                <div class="map-dot" style="top: 35%; left: 80%;"></div> <!-- Tokyo -->
+                <div class="map-dot" style="top: 40%; left: 82%;"></div> <!-- Seoul -->
+                <div class="map-dot" style="top: 65%; left: 78%;"></div> <!-- Sydney -->
+            </div>
+            <p class="scroll-reveal" style="opacity:0.4;">Activating global nodes within the Stackly network.</p>
+        </section>
+
+        <!-- NEW Section 8: Pop-up Archives -->
+        <section class="popup-archives">
+            <h2 class="section-title scroll-reveal">Temporary Objects</h2>
+            <div class="popup-grid">
+                <div class="popup-card leftreveal">
+                    <span class="popup-status">Active Now</span>
+                    <h3>The White Cube</h3>
+                    <p>Berlin // Mitte district. A clinical exploration of the 01-Series. Ends March 30.</p>
+                </div>
+                <div class="popup-card scroll-reveal">
+                    <span class="popup-status">Completed</span>
+                    <h3>Concrete Echoes</h3>
+                    <p>Tokyo // Shibuya. An architectural dialogue between cement and silk. Closed.</p>
+                </div>
+                <div class="popup-card rightreveal">
+                    <span class="popup-status">Upcoming</span>
+                    <h3>Digital Proxy</h3>
+                    <p>Paris // Le Marais. Launching April 2026. Interactive technicality.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW Section 9: Retailer Manifesto -->
+        <section class="retailer-manifesto">
+            <div class="scroll-reveal">
+                <h2 class="manifesto-title">We choose our<br>partners based on<br>philosophical alignment.</h2>
+                <div class="manifesto-line"></div>
+            </div>
+        </section>
+
+        <!-- NEW Section 10: Global Reach -->
+        <section class="global-stats">
+            <div class="stat-item scroll-reveal">
+                <span class="stat-val">24</span>
+                <span class="stat-label">Global Cities</span>
+            </div>
+            <div class="stat-item scroll-reveal" style="transition-delay: 0.2s;">
+                <span class="stat-val">58</span>
+                <span class="stat-label">Stockist Nodes</span>
+            </div>
+            <div class="stat-item scroll-reveal" style="transition-delay: 0.4s;">
+                <span class="stat-val">09</span>
+                <span class="stat-label">Digital Proxies</span>
+            </div>
+        </section>
+
+        <!-- NEW Section 11: Stockist Exclusives -->
+        <section class="exclusives-section">
+            <div class="exclusive-grid">
+                <div class="exclusive-text leftreveal">
+                    <h2>Physical<br>Exclusivity</h2>
+                    <p>Select garments are engineered exclusively for our physical partners. These pieces will never enter the digital ecosystem.</p>
+                </div>
+                <div class="exclusive-visual rightreveal">
+                    <span class="exclusive-tag">Boutique Only</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW Section 12: Digital Authorized Proxies -->
+        <section class="proxies-section">
+            <h2 class="section-title scroll-reveal">Authorized Proxies</h2>
+            <table class="proxy-table">
+                <tr class="proxy-row scroll-reveal">
+                    <td><span class="proxy-name">Hypebeast / HBX</span></td>
+                    <td class="proxy-region">Hong Kong // Global</td>
+                </tr>
+                <tr class="proxy-row scroll-reveal">
+                    <td><span class="proxy-name">Highsnobiety Shop</span></td>
+                    <td class="proxy-region">Berlin // Global</td>
+                </tr>
+                <tr class="proxy-row scroll-reveal">
+                    <td><span class="proxy-name">Antonioli</span></td>
+                    <td class="proxy-region">Milan // Europe</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- NEW Section 13: The Flagship Experience -->
+        <section class="flagship-experience">
+            <div class="experience-grid">
+                <div class="experience-visual leftreveal" style="height:400px; background:#f0f0f0; border:1px solid #ddd;"></div>
+                <div class="exp-box rightreveal">
+                    <h3>Atelier Standards</h3>
+                    <p>Every Stackly stockist is mandated to provide a singular sensory environment. Brutalist fixtures, ambient soundscapes, and calculated scent profiles create the complete universe.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW Section 14: Global Sales Nexus -->
+        <section class="sales-nexus">
+            <div class="scroll-reveal">
+                <h1 class="nexus-hero">Join The<br>Network</h1>
+                <a href="404.html" class="nexus-link">Apply for Authorization</a>
+            </div>
         </section>
     </main>
 

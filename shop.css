@@ -39,7 +39,7 @@ header.shop-header {
 
 /* Collection Hero */
 .collection-hero {
-    padding: 120px 5% 60px;
+    padding: 120px 3rem 60px;
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
@@ -83,14 +83,19 @@ header.shop-header {
 
 /* Filters */
 .filter-bar {
-    display: flex;
+    display: flex !important;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 5%;
+    padding: 0 3rem;
+    height: 60px !important;
     border-top: 1px solid #f0f0f0;
     border-bottom: 1px solid #f0f0f0;
-    background: #fff;
-    z-index: 100;
+    background: #ffffff !important;
+    z-index: 1100 !important;
+    position: sticky !important;
+    top: 96px !important; 
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .category-toggles {
@@ -157,23 +162,25 @@ header.shop-header {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    margin-right: 2rem;
+    margin-right: 0;
 }
 
 /* Product Grid */
 .product-grid-container {
-    padding: 4rem 5%;
+    padding: 4rem 3rem;
 }
 
 .product-listing {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 4rem 2rem;
+    display: grid !important;
+    grid-template-columns: repeat(6, 1fr) !important;
+    gap: 2rem 1rem !important;
+    width: 100% !important;
 }
 
 .shop-product-card {
     position: relative;
     cursor: pointer;
+    min-width: 0;
 }
 
 .product-link-wrap {
@@ -222,16 +229,21 @@ header.shop-header {
 }
 
 .product-info h3 {
-    font-size: 0.95rem;
+    font-size: 0.75rem;
     font-weight: 500;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
 }
 
 .product-info .price {
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: #666;
+    text-align: center;
 }
 
 /* Cart Drawer */

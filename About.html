@@ -113,6 +113,99 @@
             .our-story, .team-grid { grid-template-columns: 1fr; }
             .about-hero h1 { font-size: 2.5rem; }
         }
+
+        /* New Sections Styles */
+        .atelier-section { padding: 8rem 5%; background: #fff; }
+        .atelier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        .atelier-step {
+            padding: 3rem;
+            border: 1px solid #eee;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .atelier-step:hover { border-color: #000; transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .atelier-step h3 { font-size: 1.2rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+        .atelier-step p { opacity: 0.6; font-size: 0.9rem; }
+        .atelier-step span.step-num { font-size: 5rem; opacity: 0.03; position: absolute; top: 0rem; right: 1rem; font-weight: 900; pointer-events: none; }
+
+        .sustainability-pledge { padding: 8rem 5%; background: #050505; color: #fff; }
+        .sus-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        .sus-card {
+            background: rgba(255,255,255,0.03);
+            padding: 4rem 3rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.4s ease;
+        }
+        .sus-card:hover { background: rgba(255,255,255,0.08); border-color: #fff; transform: scale(1.02); }
+        .sus-card i { margin-bottom: 2rem; display: block; opacity: 0.5; }
+
+        .heritage-timeline { padding: 10rem 5%; background: #fff; }
+        .timeline-container { max-width: 900px; margin: 6rem auto; position: relative; border-left: 2px solid #f0f0f0; padding-left: 4rem; }
+        .timeline-item { margin-bottom: 6rem; position: relative; }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -4.7rem;
+            top: 0.4rem;
+            width: 1.2rem;
+            height: 1.2rem;
+            background: #fff;
+            border: 3px solid #000;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        .timeline-item:hover::before { background: #000; transform: scale(1.4); }
+        .timeline-date { font-weight: 900; font-size: 1.5rem; margin-bottom: 1rem; display: block; font-family: var(--font-serif); }
+        .timeline-content h4 { text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; }
+
+        .universe-marquee { padding: 6rem 0; background: #000; overflow: hidden; white-space: nowrap; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .marquee-wrapper { display: flex; width: fit-content; }
+        .marquee-content { display: flex; animation: marqueeAnim 40s linear infinite; }
+        .marquee-content span { font-size: 8vw; font-family: var(--font-serif); text-transform: uppercase; margin-right: 6rem; color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.3); letter-spacing: 1rem; }
+        @keyframes marqueeAnim { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+        .technical-lab { padding: 10rem 5%; background: #fdfdfd; }
+        .lab-layout { display: flex; flex-direction: column; gap: 6rem; max-width: 1200px; margin: 0 auto; }
+        .lab-feature { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: center; }
+        .lab-feature:nth-child(even) { direction: rtl; }
+        .lab-feature:nth-child(even) .feature-text { direction: ltr; text-align: right; }
+        .feature-stats { background: #000; color: #fff; padding: 4rem; position: relative; overflow: hidden; }
+        .feature-stats::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 5px; background: var(--accent-color); }
+        .stat-val { font-size: 4rem; font-family: var(--font-serif); display: block; margin-bottom: 1rem; }
+        .feature-text h3 { font-size: 2.5rem; text-transform: uppercase; margin-bottom: 1.5rem; transform: scaleY(1.2); }
+
+        .vision-section { padding: 15rem 5%; text-align: center; background: #fff; overflow: hidden; }
+        .vision-title {
+            font-size: clamp(3rem, 10vw, 12rem);
+            line-height: 0.9;
+            font-family: var(--font-serif);
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            margin-bottom: 4rem;
+            animation: visionEntrance 2.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes visionEntrance { 
+            0% { transform: translateY(100px) skewY(10deg); opacity: 0; filter: blur(20px); }
+            100% { transform: translateY(0) skewY(0); opacity: 1; filter: blur(0); }
+        }
+        .vision-desc { font-size: 1.5rem; max-width: 700px; margin: 0 auto; opacity: 0.6; line-height: 1.6; }
+
+        @media (max-width: 992px) {
+            .lab-feature { grid-template-columns: 1fr; gap: 2rem; }
+            .lab-feature:nth-child(even) .feature-text { text-align: left; }
+            .vision-title { font-size: 15vw; }
+        }
     </style>
 </head>
 <body>
@@ -212,6 +305,136 @@
             <h2 class="section-title">Shape the Future</h2>
             <p>We are constantly seeking visionaries to join our atelier.</p>
             <a href="404.html">View Careers</a>
+        </section>
+
+        <!-- NEW Section 7: The Atelier -->
+        <section class="atelier-section">
+            <h2 class="section-title scroll-reveal">The Atelier Lifecycle</h2>
+            <div class="atelier-grid">
+                <div class="atelier-step scroll-reveal">
+                    <span class="step-num">01</span>
+                    <h3>Conceptualization</h3>
+                    <p>Brutalist sketches meet mathematical precision. Every silhouette is calculated for maximum impact and minimal waste.</p>
+                </div>
+                <div class="atelier-step scroll-reveal">
+                    <span class="step-num">02</span>
+                    <h3>Technical Sourcing</h3>
+                    <p>We partner with high-performance mills specializing in recycled polyamides and organic technical fibers.</p>
+                </div>
+                <div class="atelier-step scroll-reveal">
+                    <span class="step-num">03</span>
+                    <h3>Architectural Prototyping</h3>
+                    <p>Prototyping through 3D drapery and physical sampling to ensure movement and form coexist in perfect harmony.</p>
+                </div>
+                <div class="atelier-step scroll-reveal">
+                    <span class="step-num">04</span>
+                    <h3>Limited Production</h3>
+                    <p>Manufactured in small-batch runs to eliminate overstock and maintain the highest standard of artisanal QC.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW Section 8: Sustainability -->
+        <section class="sustainability-pledge">
+            <div class="container">
+                <h2 class="section-title scroll-reveal" style="color:#fff;">Our Zero-Imprint Pledge</h2>
+                <div class="sus-cards">
+                    <div class="sus-card leftreveal">
+                        <i data-lucide="leaf" style="width:40px; height:40px;"></i>
+                        <h3>100% Recycled</h3>
+                        <p>All technical fabrics are derived from post-consumer recycled materials, reducing oceanic plastic waste.</p>
+                    </div>
+                    <div class="sus-card scroll-reveal">
+                        <i data-lucide="package" style="width:40px; height:40px;"></i>
+                        <h3>Circular Packaging</h3>
+                        <p>Our packaging is fully biodegradable and designed to be reused indefinitely or composted naturally.</p>
+                    </div>
+                    <div class="sus-card rightreveal">
+                        <i data-lucide="zap" style="width:40px; height:40px;"></i>
+                        <h3>Low Energy Dyeing</h3>
+                        <p>We utilize ultra-low water dyeing processes that significantly reduce the chemical footprint of our collections.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW Section 9: Heritage -->
+        <section class="heritage-timeline">
+            <h2 class="section-title text-center scroll-reveal">Evolution Roadmap</h2>
+            <div class="timeline-container">
+                <div class="timeline-item scroll-reveal">
+                    <span class="timeline-date">2022</span>
+                    <div class="timeline-content">
+                        <h4>Atelier Discovery</h4>
+                        <p>Founded as a design experiment focused on the intersection of brutalist architecture and wearable objects.</p>
+                    </div>
+                </div>
+                <div class="timeline-item scroll-reveal">
+                    <span class="timeline-date">2024</span>
+                    <div class="timeline-content">
+                        <h4>Global Launch</h4>
+                        <p>Opened our flagship digital experience and expanded to select stockists in Tokyo, Berlin, and New York.</p>
+                    </div>
+                </div>
+                <div class="timeline-item scroll-reveal">
+                    <span class="timeline-date">2026</span>
+                    <div class="timeline-content">
+                        <h4>The Digital Universe</h4>
+                        <p>Pioneering the next phase of immersive commerce through 3D visualization and sustainable technicality.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW Section 10: Connectivity -->
+        <section class="universe-marquee">
+            <div class="marquee-wrapper">
+                <div class="marquee-content">
+                    <span>STACKLY UNIVERSE</span>
+                    <span>ARCHITECTURAL TECHNICALITY</span>
+                    <span>MINIMALIST LUXURY</span>
+                    <span>BRUTALIST FORMS</span>
+                    <!-- Duplicate for loop -->
+                    <span>STACKLY UNIVERSE</span>
+                    <span>ARCHITECTURAL TECHNICALITY</span>
+                    <span>MINIMALIST LUXURY</span>
+                    <span>BRUTALIST FORMS</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW Section 11: Technical Lab -->
+        <section class="technical-lab">
+            <div class="lab-layout">
+                <div class="lab-feature scroll-reveal">
+                    <div class="feature-stats">
+                        <span class="stat-val">900GSM</span>
+                        <p>Material density of our technical outerwear for maximum structure and protection.</p>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Material Innovation</h3>
+                        <p>We develop custom technical blends that provide the weight of traditional architecture with the breathability of athletic performance wear.</p>
+                    </div>
+                </div>
+                <div class="lab-feature scroll-reveal">
+                    <div class="feature-stats">
+                        <span class="stat-val">4-WAY</span>
+                        <p>Stretch technicality integrated into our tailored classifications for ergonomic freedom.</p>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Dynamic Motion</h3>
+                        <p>Every pattern is engineered for the human form in motion, ensuring that minimalist silhouettes never restrict performance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW Section 12: Future Vision -->
+        <section class="vision-section">
+            <div class="scroll-reveal">
+                <h2 class="vision-title">Beyond<br>Clothing</h2>
+                <p class="vision-desc">We are not just building a brand; we are constructing a philosophy of living that prioritizes form, function, and the future of our planet. Designed for the bold, built for the next century.</p>
+            </div>
         </section>
     </main>
 

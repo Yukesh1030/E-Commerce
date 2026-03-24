@@ -8,10 +8,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="style.css?v=1">
+    <link rel="stylesheet" href="shop.css?v=1">
 </head>
-<body class="shop-page">
+<body class="shop-page" style="overflow-x: visible !important;">
+    <style>
+        html { overflow-x: visible !important; }
+        .filter-bar.sticky-filters {
+            position: -webkit-sticky !important;
+            position: sticky !important;
+            top: 84px !important;
+            z-index: 1100 !important;
+            background: white !important;
+            display: flex !important;
+            height: 60px !important;
+            visibility: visible !important;
+        }
+        .product-listing {
+            display: grid !important;
+            grid-template-columns: repeat(6, 1fr) !important;
+            gap: 2rem 1rem !important;
+            width: 100% !important;
+            max-width: none !important;
+        }
+        @media (max-width: 1024px) {
+            .product-listing { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 640px) {
+            .product-listing { grid-template-columns: 1fr !important; }
+        }
+    </style>
     
     <!-- Matching index.html Header -->
     <header>
@@ -1328,6 +1354,19 @@
         </div>
     </footer>
 
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const grid = document.querySelector('.product-listing');
+                const filter = document.querySelector('.filter-bar');
+                console.log('--- LAYOUT VERIFICATION ---');
+                console.log('GRID_COLS:', window.getComputedStyle(grid).gridTemplateColumns);
+                console.log('STICKY_POS:', window.getComputedStyle(filter).position);
+                console.log('STICKY_TOP:', window.getComputedStyle(filter).top);
+                console.log('--- END VERIFICATION ---');
+            }, 1000);
+        });
+    </script>
     <script src="script.js"></script>
     <script src="shop.js"></script>
 </body>
