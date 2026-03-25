@@ -91,19 +91,4 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Global cart sync for header badge across pages
-function updateGlobalCartBadge() {
-    const badge = document.getElementById('cartBadge');
-    if (badge) {
-        try {
-            let cart = JSON.parse(localStorage.getItem('stackly_cart')) || [];
-            let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            badge.textContent = totalItems;
-            badge.style.display = totalItems > 0 ? 'flex' : 'none';
-        } catch (e) {
-            console.error("Cart parse error", e);
-        }
-    }
-}
 
-document.addEventListener('DOMContentLoaded', updateGlobalCartBadge);

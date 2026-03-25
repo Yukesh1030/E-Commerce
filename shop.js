@@ -2,7 +2,7 @@
 let cart = JSON.parse(localStorage.getItem('stackly_cart')) || [];
 const drawer = document.getElementById('cart-drawer');
 const overlay = document.getElementById('cart-overlay');
-const cartTrigger = document.getElementById('cart-icon-trigger');
+
 const closeBtn = document.getElementById('close-drawer');
 
 function toggleCart() {
@@ -11,10 +11,7 @@ function toggleCart() {
     overlay.classList.toggle('active');
 }
 
-if(cartTrigger) cartTrigger.addEventListener('click', (e) => {
-    e.preventDefault();
-    toggleCart();
-});
+
 
 if(closeBtn) closeBtn.addEventListener('click', toggleCart);
 if(overlay) overlay.addEventListener('click', toggleCart);
