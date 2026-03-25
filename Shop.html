@@ -13,7 +13,6 @@
 </head>
 <body class="shop-page" style="overflow-x: visible !important;">
     <style>
-        html { overflow-x: visible !important; }
         .filter-bar.sticky-filters {
             position: -webkit-sticky !important;
             position: sticky !important;
@@ -23,19 +22,6 @@
             display: flex !important;
             height: 60px !important;
             visibility: visible !important;
-        }
-        .product-listing {
-            display: grid !important;
-            grid-template-columns: repeat(6, 1fr) !important;
-            gap: 2rem 1rem !important;
-            width: 100% !important;
-            max-width: none !important;
-        }
-        @media (max-width: 1024px) {
-            .product-listing { grid-template-columns: repeat(2, 1fr) !important; }
-        }
-        @media (max-width: 640px) {
-            .product-listing { grid-template-columns: 1fr !important; }
         }
     </style>
     
@@ -100,1177 +86,473 @@
     <!-- Product Grid -->
     <main class="product-grid-container">
         <div class="product-listing" id="productGrid">
-
-            <div class="shop-product-card reveal" data-category="mens" data-price="640">
+            <div class="shop-product-card reveal" data-category="mens" data-price="780">
                 <a href="Product.html?id=1" class="product-link-wrap">
                     <div class="product-image">
-                        <img src="assets/shop_item_blazer_cart_1774241017184.webp" alt="Mens Structured Blazer">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Structured Blazer', 640)">ADD TO BAG</button>
+                        <img src="assets/product1.webp" alt="Mens Technical Jacket">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Technical Jacket', 780)">ADD TO BAG</button>
                     </div>
                     <div class="product-info">
-                        <h3>Mens Structured Blazer</h3>
-                        <p class="price">$640.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="mens" data-price="823">
-                <a href="Product.html?id=2" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/product3.webp" alt="Mens Brutalist Sweater">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Brutalist Sweater', 823)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Mens Brutalist Sweater</h3>
-                        <p class="price">$823.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="mens" data-price="797">
-                <a href="Product.html?id=3" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/product3.webp" alt="Mens Structured Tote">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Structured Tote', 797)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Mens Structured Tote</h3>
-                        <p class="price">$797.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="mens" data-price="798">
-                <a href="Product.html?id=4" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/shop_item_ring_cart_1774241049633.webp" alt="Mens Technical Frames">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Technical Frames', 798)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Mens Technical Frames</h3>
-                        <p class="price">$798.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="mens" data-price="104">
-                <a href="Product.html?id=5" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/shop_item_blazer_cart_1774241017184.webp" alt="Mens Structured Frames">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Structured Frames', 104)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Mens Structured Frames</h3>
-                        <p class="price">$104.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="mens" data-price="472">
-                <a href="Product.html?id=6" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_sweater_1774241908404.webp" alt="Mens Premium Dress">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Premium Dress', 472)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Mens Premium Dress</h3>
-                        <p class="price">$472.00</p>
+                        <h3>Mens Technical Jacket</h3>
+                        <p class="price">$780.00</p>
                     </div>
                 </a>
             </div>
 
             <div class="shop-product-card reveal" data-category="mens" data-price="460">
-                <a href="Product.html?id=7" class="product-link-wrap">
+                <a href="Product.html?id=2" class="product-link-wrap">
                     <div class="product-image">
-                        <img src="assets/shop_item_dress_cart_1774241065849.webp" alt="Mens Minimalist Sweater">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Minimalist Sweater', 460)">ADD TO BAG</button>
+                        <img src="assets/category_apparel_1774239643938.webp" alt="Mens Brutalist Sweater">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Brutalist Sweater', 460)">ADD TO BAG</button>
                     </div>
                     <div class="product-info">
-                        <h3>Mens Minimalist Sweater</h3>
+                        <h3>Mens Brutalist Sweater</h3>
                         <p class="price">$460.00</p>
                     </div>
                 </a>
             </div>
 
-            <div class="shop-product-card reveal" data-category="mens" data-price="239">
+            <div class="shop-product-card reveal" data-category="mens" data-price="180">
+                <a href="Product.html?id=3" class="product-link-wrap">
+                    <div class="product-image">
+                        <img src="assets/product2.webp" alt="Mens Minimalist Logo Tee">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Minimalist Logo Tee', 180)">ADD TO BAG</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Mens Minimalist Logo Tee</h3>
+                        <p class="price">$180.00</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="shop-product-card reveal" data-category="mens" data-price="340">
+                <a href="Product.html?id=4" class="product-link-wrap">
+                    <div class="product-image">
+                        <img src="assets/lookbook2_1774239625282.webp" alt="Mens Brutalist Ring">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Brutalist Ring', 340)">ADD TO BAG</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Mens Brutalist Ring</h3>
+                        <p class="price">$340.00</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="shop-product-card reveal" data-category="mens" data-price="280">
+                <a href="Product.html?id=5" class="product-link-wrap">
+                    <div class="product-image">
+                        <img src="assets/product3.webp" alt="Mens Technical Utility Belt">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Technical Utility Belt', 280)">ADD TO BAG</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Mens Technical Utility Belt</h3>
+                        <p class="price">$280.00</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="shop-product-card reveal" data-category="mens" data-price="890">
+                <a href="Product.html?id=6" class="product-link-wrap">
+                    <div class="product-image">
+                        <img src="assets/product1.webp" alt="Mens Industrial Parka">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Industrial Parka', 890)">ADD TO BAG</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Mens Industrial Parka</h3>
+                        <p class="price">$890.00</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="shop-product-card reveal" data-category="mens" data-price="520">
+                <a href="Product.html?id=7" class="product-link-wrap">
+                    <div class="product-image">
+                        <img src="assets/product1.webp" alt="Mens Structured Overshirt">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Structured Overshirt', 520)">ADD TO BAG</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Mens Structured Overshirt</h3>
+                        <p class="price">$520.00</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="shop-product-card reveal" data-category="mens" data-price="440">
                 <a href="Product.html?id=8" class="product-link-wrap">
                     <div class="product-image">
-                        <img src="assets/drop5_hoodie_1774242291628.webp" alt="Mens Oversized Tee">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Oversized Tee', 239)">ADD TO BAG</button>
+                        <img src="assets/category_apparel_1774239643938.webp" alt="Mens Heavyweight Sweater">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Heavyweight Sweater', 440)">ADD TO BAG</button>
                     </div>
                     <div class="product-info">
-                        <h3>Mens Oversized Tee</h3>
-                        <p class="price">$239.00</p>
+                        <h3>Mens Heavyweight Sweater</h3>
+                        <p class="price">$440.00</p>
                     </div>
                 </a>
             </div>
 
-            <div class="shop-product-card reveal" data-category="mens" data-price="143">
+            <div class="shop-product-card reveal" data-category="mens" data-price="150">
                 <a href="Product.html?id=9" class="product-link-wrap">
                     <div class="product-image">
-                        <img src="assets/drop5_frames_1774241956698.webp" alt="Mens Premium Tote">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Premium Tote', 143)">ADD TO BAG</button>
+                        <img src="assets/product2.webp" alt="Mens Essential Tee">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Essential Tee', 150)">ADD TO BAG</button>
                     </div>
                     <div class="product-info">
-                        <h3>Mens Premium Tote</h3>
-                        <p class="price">$143.00</p>
+                        <h3>Mens Essential Tee</h3>
+                        <p class="price">$150.00</p>
                     </div>
                 </a>
             </div>
 
-            <div class="shop-product-card reveal" data-category="mens" data-price="630">
+            <div class="shop-product-card reveal" data-category="mens" data-price="380">
                 <a href="Product.html?id=10" class="product-link-wrap">
                     <div class="product-image">
-                        <img src="assets/product3.webp" alt="Mens Premium Sweater">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Premium Sweater', 630)">ADD TO BAG</button>
+                        <img src="assets/product1.webp" alt="Mens Tech Hoodie">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Tech Hoodie', 380)">ADD TO BAG</button>
                     </div>
                     <div class="product-info">
-                        <h3>Mens Premium Sweater</h3>
-                        <p class="price">$630.00</p>
+                        <h3>Mens Tech Hoodie</h3>
+                        <p class="price">$380.00</p>
                     </div>
                 </a>
             </div>
 
-            <div class="shop-product-card reveal" data-category="mens" data-price="242">
+            <div class="shop-product-card reveal" data-category="mens" data-price="650">
                 <a href="Product.html?id=11" class="product-link-wrap">
                     <div class="product-image">
-                        <img src="assets/drop5_boots_1774241938251.webp" alt="Mens Minimalist Frames">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Minimalist Frames', 242)">ADD TO BAG</button>
+                        <img src="assets/drop5_boots_1774241938251.webp" alt="Mens Industrial Boots">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Industrial Boots', 650)">ADD TO BAG</button>
                     </div>
                     <div class="product-info">
-                        <h3>Mens Minimalist Frames</h3>
-                        <p class="price">$242.00</p>
+                        <h3>Mens Industrial Boots</h3>
+                        <p class="price">$650.00</p>
                     </div>
                 </a>
             </div>
 
-            <div class="shop-product-card reveal" data-category="mens" data-price="648">
+            <div class="shop-product-card reveal" data-category="mens" data-price="220">
                 <a href="Product.html?id=12" class="product-link-wrap">
                     <div class="product-image">
-                        <img src="assets/shop_item_tote_cart_1774241034471.webp" alt="Mens Essential Ring">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Essential Ring', 648)">ADD TO BAG</button>
+                        <img src="assets/drop5_bag_1774241922238.webp" alt="Mens Utility Tote">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Utility Tote', 220)">ADD TO BAG</button>
                     </div>
                     <div class="product-info">
-                        <h3>Mens Essential Ring</h3>
-                        <p class="price">$648.00</p>
+                        <h3>Mens Utility Tote</h3>
+                        <p class="price">$220.00</p>
                     </div>
                 </a>
             </div>
 
-            <div class="shop-product-card reveal" data-category="mens" data-price="206">
+            <div class="shop-product-card reveal" data-category="womens" data-price="950">
                 <a href="Product.html?id=13" class="product-link-wrap">
                     <div class="product-image">
-                        <img src="assets/shop_item_dress_cart_1774241065849.webp" alt="Mens Premium Hoodie">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Premium Hoodie', 206)">ADD TO BAG</button>
+                        <img src="assets/lookbook5.webp" alt="Womens Asymmetric Dress">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Asymmetric Dress', 950)">ADD TO BAG</button>
                     </div>
                     <div class="product-info">
-                        <h3>Mens Premium Hoodie</h3>
-                        <p class="price">$206.00</p>
+                        <h3>Womens Asymmetric Dress</h3>
+                        <p class="price">$950.00</p>
                     </div>
                 </a>
             </div>
 
-            <div class="shop-product-card reveal" data-category="mens" data-price="125">
+            <div class="shop-product-card reveal" data-category="womens" data-price="1100">
                 <a href="Product.html?id=14" class="product-link-wrap">
                     <div class="product-image">
-                        <img src="assets/drop5_frames_1774241956698.webp" alt="Mens Brutalist Boots">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Brutalist Boots', 125)">ADD TO BAG</button>
+                        <img src="assets/lookbook3.webp" alt="Womens Architectural Ensemble">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Architectural Ensemble', 1100)">ADD TO BAG</button>
                     </div>
                     <div class="product-info">
-                        <h3>Mens Brutalist Boots</h3>
-                        <p class="price">$125.00</p>
+                        <h3>Womens Architectural Ensemble</h3>
+                        <p class="price">$1100.00</p>
                     </div>
                 </a>
             </div>
 
-            <div class="shop-product-card reveal" data-category="mens" data-price="171">
+            <div class="shop-product-card reveal" data-category="womens" data-price="1250">
                 <a href="Product.html?id=15" class="product-link-wrap">
                     <div class="product-image">
-                        <img src="assets/shop_item_ring_cart_1774241049633.webp" alt="Mens Structured Ring">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Structured Ring', 171)">ADD TO BAG</button>
+                        <img src="assets/editorial_bg_1774239696521.webp" alt="Womens Resort Gown">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Resort Gown', 1250)">ADD TO BAG</button>
                     </div>
                     <div class="product-info">
-                        <h3>Mens Structured Ring</h3>
-                        <p class="price">$171.00</p>
+                        <h3>Womens Resort Gown</h3>
+                        <p class="price">$1250.00</p>
                     </div>
                 </a>
             </div>
 
-            <div class="shop-product-card reveal" data-category="mens" data-price="658">
+            <div class="shop-product-card reveal" data-category="womens" data-price="980">
                 <a href="Product.html?id=16" class="product-link-wrap">
                     <div class="product-image">
-                        <img src="assets/drop5_jacket_1774241890555.webp" alt="Mens Premium Hoodie">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Premium Hoodie', 658)">ADD TO BAG</button>
+                        <img src="assets/hero.webp" alt="Womens High-Fashion Blazer">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens High-Fashion Blazer', 980)">ADD TO BAG</button>
                     </div>
                     <div class="product-info">
-                        <h3>Mens Premium Hoodie</h3>
-                        <p class="price">$658.00</p>
+                        <h3>Womens High-Fashion Blazer</h3>
+                        <p class="price">$980.00</p>
                     </div>
                 </a>
             </div>
 
-            <div class="shop-product-card reveal" data-category="mens" data-price="425">
+            <div class="shop-product-card reveal" data-category="womens" data-price="750">
                 <a href="Product.html?id=17" class="product-link-wrap">
                     <div class="product-image">
-                        <img src="assets/shop_item_ring_cart_1774241049633.webp" alt="Mens Oversized Ring">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Oversized Ring', 425)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Mens Oversized Ring</h3>
-                        <p class="price">$425.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="mens" data-price="383">
-                <a href="Product.html?id=18" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_boots_1774241938251.webp" alt="Mens Structured Frames">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Structured Frames', 383)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Mens Structured Frames</h3>
-                        <p class="price">$383.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="mens" data-price="609">
-                <a href="Product.html?id=19" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/product3.webp" alt="Mens Structured Blazer">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Structured Blazer', 609)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Mens Structured Blazer</h3>
-                        <p class="price">$609.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="mens" data-price="491">
-                <a href="Product.html?id=20" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_frames_1774241956698.webp" alt="Mens Minimalist Blazer">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Minimalist Blazer', 491)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Mens Minimalist Blazer</h3>
-                        <p class="price">$491.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="mens" data-price="686">
-                <a href="Product.html?id=21" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/shop_item_blazer_cart_1774241017184.webp" alt="Mens Structured Ring">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Structured Ring', 686)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Mens Structured Ring</h3>
-                        <p class="price">$686.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="mens" data-price="279">
-                <a href="Product.html?id=22" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/shop_item_tote_cart_1774241034471.webp" alt="Mens Oversized Frames">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Oversized Frames', 279)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Mens Oversized Frames</h3>
-                        <p class="price">$279.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="mens" data-price="78">
-                <a href="Product.html?id=23" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_sweater_1774241908404.webp" alt="Mens Structured Dress">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Structured Dress', 78)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Mens Structured Dress</h3>
-                        <p class="price">$78.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="mens" data-price="84">
-                <a href="Product.html?id=24" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_frames_1774241956698.webp" alt="Mens Minimalist Blazer">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Minimalist Blazer', 84)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Mens Minimalist Blazer</h3>
-                        <p class="price">$84.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="mens" data-price="474">
-                <a href="Product.html?id=25" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_frames_1774241956698.webp" alt="Mens Minimalist Hoodie">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Minimalist Hoodie', 474)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Mens Minimalist Hoodie</h3>
-                        <p class="price">$474.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="mens" data-price="367">
-                <a href="Product.html?id=26" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/shop_item_tote_cart_1774241034471.webp" alt="Mens Premium Sweater">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Premium Sweater', 367)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Mens Premium Sweater</h3>
-                        <p class="price">$367.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="mens" data-price="695">
-                <a href="Product.html?id=27" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/shop_item_dress_cart_1774241065849.webp" alt="Mens Structured Frames">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Structured Frames', 695)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Mens Structured Frames</h3>
-                        <p class="price">$695.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="mens" data-price="843">
-                <a href="Product.html?id=28" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_hoodie_1774242291628.webp" alt="Mens Essential Tote">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Essential Tote', 843)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Mens Essential Tote</h3>
-                        <p class="price">$843.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="mens" data-price="783">
-                <a href="Product.html?id=29" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/shop_item_ring_cart_1774241049633.webp" alt="Mens Premium Tote">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Premium Tote', 783)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Mens Premium Tote</h3>
-                        <p class="price">$783.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="mens" data-price="800">
-                <a href="Product.html?id=30" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_boots_1774241938251.webp" alt="Mens Premium Boots">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Mens Premium Boots', 800)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Mens Premium Boots</h3>
-                        <p class="price">$800.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="526">
-                <a href="Product.html?id=31" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_tee_1774241972149.webp" alt="Womens Technical Tote">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Technical Tote', 526)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Technical Tote</h3>
-                        <p class="price">$526.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="238">
-                <a href="Product.html?id=32" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/shop_item_ring_cart_1774241049633.webp" alt="Womens Premium Dress">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Premium Dress', 238)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Premium Dress</h3>
-                        <p class="price">$238.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="522">
-                <a href="Product.html?id=33" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/product3.webp" alt="Womens Structured Tee">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Structured Tee', 522)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Structured Tee</h3>
-                        <p class="price">$522.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="550">
-                <a href="Product.html?id=34" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/product3.webp" alt="Womens Essential Frames">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Essential Frames', 550)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Essential Frames</h3>
-                        <p class="price">$550.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="843">
-                <a href="Product.html?id=35" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_sweater_1774241908404.webp" alt="Womens Minimalist Hoodie">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Minimalist Hoodie', 843)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Minimalist Hoodie</h3>
-                        <p class="price">$843.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="167">
-                <a href="Product.html?id=36" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/shop_item_tote_cart_1774241034471.webp" alt="Womens Minimalist Hoodie">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Minimalist Hoodie', 167)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Minimalist Hoodie</h3>
-                        <p class="price">$167.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="402">
-                <a href="Product.html?id=37" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_frames_1774241956698.webp" alt="Womens Essential Frames">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Essential Frames', 402)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Essential Frames</h3>
-                        <p class="price">$402.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="673">
-                <a href="Product.html?id=38" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/product3.webp" alt="Womens Brutalist Boots">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Brutalist Boots', 673)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Brutalist Boots</h3>
-                        <p class="price">$673.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="512">
-                <a href="Product.html?id=39" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/shop_item_blazer_cart_1774241017184.webp" alt="Womens Brutalist Tee">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Brutalist Tee', 512)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Brutalist Tee</h3>
-                        <p class="price">$512.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="704">
-                <a href="Product.html?id=40" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/shop_item_dress_cart_1774241065849.webp" alt="Womens Technical Hoodie">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Technical Hoodie', 704)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Technical Hoodie</h3>
-                        <p class="price">$704.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="104">
-                <a href="Product.html?id=41" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_sweater_1774241908404.webp" alt="Womens Oversized Dress">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Oversized Dress', 104)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Oversized Dress</h3>
-                        <p class="price">$104.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="610">
-                <a href="Product.html?id=42" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_jacket_1774241890555.webp" alt="Womens Brutalist Dress">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Brutalist Dress', 610)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Brutalist Dress</h3>
-                        <p class="price">$610.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="103">
-                <a href="Product.html?id=43" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/shop_item_ring_cart_1774241049633.webp" alt="Womens Minimalist Ring">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Minimalist Ring', 103)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Minimalist Ring</h3>
-                        <p class="price">$103.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="392">
-                <a href="Product.html?id=44" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_sweater_1774241908404.webp" alt="Womens Oversized Jacket">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Oversized Jacket', 392)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Oversized Jacket</h3>
-                        <p class="price">$392.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="725">
-                <a href="Product.html?id=45" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_hoodie_1774242291628.webp" alt="Womens Technical Tee">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Technical Tee', 725)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Technical Tee</h3>
-                        <p class="price">$725.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="250">
-                <a href="Product.html?id=46" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_sweater_1774241908404.webp" alt="Womens Minimalist Tee">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Minimalist Tee', 250)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Minimalist Tee</h3>
-                        <p class="price">$250.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="691">
-                <a href="Product.html?id=47" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_boots_1774241938251.webp" alt="Womens Essential Sweater">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Essential Sweater', 691)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Essential Sweater</h3>
-                        <p class="price">$691.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="377">
-                <a href="Product.html?id=48" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_sweater_1774241908404.webp" alt="Womens Structured Sweater">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Structured Sweater', 377)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Structured Sweater</h3>
-                        <p class="price">$377.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="644">
-                <a href="Product.html?id=49" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_frames_1774241956698.webp" alt="Womens Oversized Dress">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Oversized Dress', 644)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Oversized Dress</h3>
-                        <p class="price">$644.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="455">
-                <a href="Product.html?id=50" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_frames_1774241956698.webp" alt="Womens Minimalist Frames">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Minimalist Frames', 455)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Minimalist Frames</h3>
-                        <p class="price">$455.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="468">
-                <a href="Product.html?id=51" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_hoodie_1774242291628.webp" alt="Womens Structured Frames">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Structured Frames', 468)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Structured Frames</h3>
-                        <p class="price">$468.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="62">
-                <a href="Product.html?id=52" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_bag_1774241922238.webp" alt="Womens Technical Dress">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Technical Dress', 62)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Technical Dress</h3>
-                        <p class="price">$62.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="158">
-                <a href="Product.html?id=53" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_jacket_1774241890555.webp" alt="Womens Minimalist Sweater">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Minimalist Sweater', 158)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Minimalist Sweater</h3>
-                        <p class="price">$158.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="307">
-                <a href="Product.html?id=54" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_sweater_1774241908404.webp" alt="Womens Brutalist Boots">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Brutalist Boots', 307)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Brutalist Boots</h3>
-                        <p class="price">$307.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="84">
-                <a href="Product.html?id=55" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_boots_1774241938251.webp" alt="Womens Essential Jacket">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Essential Jacket', 84)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Essential Jacket</h3>
-                        <p class="price">$84.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="110">
-                <a href="Product.html?id=56" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_jacket_1774241890555.webp" alt="Womens Minimalist Ring">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Minimalist Ring', 110)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Minimalist Ring</h3>
-                        <p class="price">$110.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="829">
-                <a href="Product.html?id=57" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/shop_item_tote_cart_1774241034471.webp" alt="Womens Premium Jacket">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Premium Jacket', 829)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Premium Jacket</h3>
-                        <p class="price">$829.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="163">
-                <a href="Product.html?id=58" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_frames_1774241956698.webp" alt="Womens Structured Dress">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Structured Dress', 163)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Structured Dress</h3>
-                        <p class="price">$163.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="306">
-                <a href="Product.html?id=59" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/shop_item_tote_cart_1774241034471.webp" alt="Womens Minimalist Dress">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Minimalist Dress', 306)">ADD TO BAG</button>
+                        <img src="assets/lookbook5.webp" alt="Womens Minimalist Dress">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Minimalist Dress', 750)">ADD TO BAG</button>
                     </div>
                     <div class="product-info">
                         <h3>Womens Minimalist Dress</h3>
-                        <p class="price">$306.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="womens" data-price="210">
-                <a href="Product.html?id=60" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/shop_item_tote_cart_1774241034471.webp" alt="Womens Essential Tote">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Essential Tote', 210)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Womens Essential Tote</h3>
-                        <p class="price">$210.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="276">
-                <a href="Product.html?id=61" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/shop_item_dress_cart_1774241065849.webp" alt="Kids Essential Tote">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Essential Tote', 276)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Essential Tote</h3>
-                        <p class="price">$276.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="327">
-                <a href="Product.html?id=62" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/shop_item_ring_cart_1774241049633.webp" alt="Kids Premium Dress">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Premium Dress', 327)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Premium Dress</h3>
-                        <p class="price">$327.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="162">
-                <a href="Product.html?id=63" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_sweater_1774241908404.webp" alt="Kids Essential Tee">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Essential Tee', 162)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Essential Tee</h3>
-                        <p class="price">$162.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="556">
-                <a href="Product.html?id=64" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/shop_item_tote_cart_1774241034471.webp" alt="Kids Technical Frames">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Technical Frames', 556)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Technical Frames</h3>
-                        <p class="price">$556.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="99">
-                <a href="Product.html?id=65" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_frames_1774241956698.webp" alt="Kids Minimalist Frames">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Minimalist Frames', 99)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Minimalist Frames</h3>
-                        <p class="price">$99.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="92">
-                <a href="Product.html?id=66" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/shop_item_tote_cart_1774241034471.webp" alt="Kids Technical Tee">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Technical Tee', 92)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Technical Tee</h3>
-                        <p class="price">$92.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="462">
-                <a href="Product.html?id=67" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_bag_1774241922238.webp" alt="Kids Essential Frames">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Essential Frames', 462)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Essential Frames</h3>
-                        <p class="price">$462.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="345">
-                <a href="Product.html?id=68" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_frames_1774241956698.webp" alt="Kids Structured Hoodie">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Structured Hoodie', 345)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Structured Hoodie</h3>
-                        <p class="price">$345.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="353">
-                <a href="Product.html?id=69" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/shop_item_dress_cart_1774241065849.webp" alt="Kids Brutalist Tee">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Brutalist Tee', 353)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Brutalist Tee</h3>
-                        <p class="price">$353.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="551">
-                <a href="Product.html?id=70" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_jacket_1774241890555.webp" alt="Kids Oversized Sweater">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Oversized Sweater', 551)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Oversized Sweater</h3>
-                        <p class="price">$551.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="193">
-                <a href="Product.html?id=71" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/shop_item_ring_cart_1774241049633.webp" alt="Kids Premium Blazer">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Premium Blazer', 193)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Premium Blazer</h3>
-                        <p class="price">$193.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="82">
-                <a href="Product.html?id=72" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_frames_1774241956698.webp" alt="Kids Minimalist Blazer">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Minimalist Blazer', 82)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Minimalist Blazer</h3>
-                        <p class="price">$82.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="385">
-                <a href="Product.html?id=73" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/product3.webp" alt="Kids Essential Frames">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Essential Frames', 385)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Essential Frames</h3>
-                        <p class="price">$385.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="722">
-                <a href="Product.html?id=74" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/product3.webp" alt="Kids Technical Tote">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Technical Tote', 722)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Technical Tote</h3>
-                        <p class="price">$722.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="539">
-                <a href="Product.html?id=75" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_frames_1774241956698.webp" alt="Kids Minimalist Frames">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Minimalist Frames', 539)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Minimalist Frames</h3>
-                        <p class="price">$539.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="716">
-                <a href="Product.html?id=76" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_hoodie_1774242291628.webp" alt="Kids Essential Dress">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Essential Dress', 716)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Essential Dress</h3>
-                        <p class="price">$716.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="250">
-                <a href="Product.html?id=77" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_boots_1774241938251.webp" alt="Kids Premium Blazer">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Premium Blazer', 250)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Premium Blazer</h3>
-                        <p class="price">$250.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="573">
-                <a href="Product.html?id=78" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_frames_1774241956698.webp" alt="Kids Structured Boots">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Structured Boots', 573)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Structured Boots</h3>
-                        <p class="price">$573.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="246">
-                <a href="Product.html?id=79" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/shop_item_tote_cart_1774241034471.webp" alt="Kids Brutalist Tee">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Brutalist Tee', 246)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Brutalist Tee</h3>
-                        <p class="price">$246.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="583">
-                <a href="Product.html?id=80" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_tee_1774241972149.webp" alt="Kids Technical Boots">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Technical Boots', 583)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Technical Boots</h3>
-                        <p class="price">$583.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="378">
-                <a href="Product.html?id=81" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/product3.webp" alt="Kids Essential Sweater">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Essential Sweater', 378)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Essential Sweater</h3>
-                        <p class="price">$378.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="823">
-                <a href="Product.html?id=82" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_boots_1774241938251.webp" alt="Kids Essential Boots">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Essential Boots', 823)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Essential Boots</h3>
-                        <p class="price">$823.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="645">
-                <a href="Product.html?id=83" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_frames_1774241956698.webp" alt="Kids Oversized Frames">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Oversized Frames', 645)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Oversized Frames</h3>
-                        <p class="price">$645.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="348">
-                <a href="Product.html?id=84" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_tee_1774241972149.webp" alt="Kids Minimalist Tote">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Minimalist Tote', 348)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Minimalist Tote</h3>
-                        <p class="price">$348.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="161">
-                <a href="Product.html?id=85" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_hoodie_1774242291628.webp" alt="Kids Essential Ring">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Essential Ring', 161)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Essential Ring</h3>
-                        <p class="price">$161.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="475">
-                <a href="Product.html?id=86" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/shop_item_ring_cart_1774241049633.webp" alt="Kids Minimalist Ring">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Minimalist Ring', 475)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Minimalist Ring</h3>
-                        <p class="price">$475.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="250">
-                <a href="Product.html?id=87" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_hoodie_1774242291628.webp" alt="Kids Technical Hoodie">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Technical Hoodie', 250)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Technical Hoodie</h3>
-                        <p class="price">$250.00</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shop-product-card reveal" data-category="kids" data-price="750">
-                <a href="Product.html?id=88" class="product-link-wrap">
-                    <div class="product-image">
-                        <img src="assets/drop5_tee_1774241972149.webp" alt="Kids Structured Tee">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Structured Tee', 750)">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
-                        <h3>Kids Structured Tee</h3>
                         <p class="price">$750.00</p>
                     </div>
                 </a>
             </div>
 
-            <div class="shop-product-card reveal" data-category="kids" data-price="608">
-                <a href="Product.html?id=89" class="product-link-wrap">
+            <div class="shop-product-card reveal" data-category="womens" data-price="310">
+                <a href="Product.html?id=18" class="product-link-wrap">
                     <div class="product-image">
-                        <img src="assets/shop_item_ring_cart_1774241049633.webp" alt="Kids Technical Sweater">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Technical Sweater', 608)">ADD TO BAG</button>
+                        <img src="assets/lookbook2_1774239625282.webp" alt="Womens Brutalist Ring">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Brutalist Ring', 310)">ADD TO BAG</button>
                     </div>
                     <div class="product-info">
-                        <h3>Kids Technical Sweater</h3>
-                        <p class="price">$608.00</p>
+                        <h3>Womens Brutalist Ring</h3>
+                        <p class="price">$310.00</p>
                     </div>
                 </a>
             </div>
 
-            <div class="shop-product-card reveal" data-category="kids" data-price="177">
-                <a href="Product.html?id=90" class="product-link-wrap">
+            <div class="shop-product-card reveal" data-category="womens" data-price="820">
+                <a href="Product.html?id=19" class="product-link-wrap">
                     <div class="product-image">
-                        <img src="assets/drop5_jacket_1774241890555.webp" alt="Kids Premium Frames">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Premium Frames', 177)">ADD TO BAG</button>
+                        <img src="assets/hero.webp" alt="Womens Technical Blazer">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Technical Blazer', 820)">ADD TO BAG</button>
                     </div>
                     <div class="product-info">
-                        <h3>Kids Premium Frames</h3>
-                        <p class="price">$177.00</p>
+                        <h3>Womens Technical Blazer</h3>
+                        <p class="price">$820.00</p>
                     </div>
                 </a>
             </div>
-        </div>
+
+            <div class="shop-product-card reveal" data-category="womens" data-price="290">
+                <a href="Product.html?id=20" class="product-link-wrap">
+                    <div class="product-image">
+                        <img src="assets/product3.webp" alt="Womens Oversized Tote">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Oversized Tote', 290)">ADD TO BAG</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Womens Oversized Tote</h3>
+                        <p class="price">$290.00</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="shop-product-card reveal" data-category="womens" data-price="420">
+                <a href="Product.html?id=21" class="product-link-wrap">
+                    <div class="product-image">
+                        <img src="assets/product3.webp" alt="Womens Technical Eyewear">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Technical Eyewear', 420)">ADD TO BAG</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Womens Technical Eyewear</h3>
+                        <p class="price">$420.00</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="shop-product-card reveal" data-category="womens" data-price="460">
+                <a href="Product.html?id=22" class="product-link-wrap">
+                    <div class="product-image">
+                        <img src="assets/lookbook4.webp" alt="Womens Detail Hoodie">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Detail Hoodie', 460)">ADD TO BAG</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Womens Detail Hoodie</h3>
+                        <p class="price">$460.00</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="shop-product-card reveal" data-category="womens" data-price="580">
+                <a href="Product.html?id=23" class="product-link-wrap">
+                    <div class="product-image">
+                        <img src="assets/lookbook3.webp" alt="Womens Sculptural Top">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Sculptural Top', 580)">ADD TO BAG</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Womens Sculptural Top</h3>
+                        <p class="price">$580.00</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="shop-product-card reveal" data-category="womens" data-price="1450">
+                <a href="Product.html?id=24" class="product-link-wrap">
+                    <div class="product-image">
+                        <img src="assets/lookbook5.webp" alt="Womens Modern Trench">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Womens Modern Trench', 1450)">ADD TO BAG</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Womens Modern Trench</h3>
+                        <p class="price">$1450.00</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="shop-product-card reveal" data-category="kids" data-price="220">
+                <a href="Product.html?id=25" class="product-link-wrap">
+                    <div class="product-image">
+                        <img src="assets/product3.webp" alt="Kids Technical Hoodie">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Technical Hoodie', 220)">ADD TO BAG</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Kids Technical Hoodie</h3>
+                        <p class="price">$220.00</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="shop-product-card reveal" data-category="kids" data-price="190">
+                <a href="Product.html?id=26" class="product-link-wrap">
+                    <div class="product-image">
+                        <img src="assets/drop5_sweater_1774241908404.webp" alt="Kids Essential Sweater">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Essential Sweater', 190)">ADD TO BAG</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Kids Essential Sweater</h3>
+                        <p class="price">$190.00</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="shop-product-card reveal" data-category="kids" data-price="280">
+                <a href="Product.html?id=27" class="product-link-wrap">
+                    <div class="product-image">
+                        <img src="assets/product1.webp" alt="Kids Minimalist Jacket">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Minimalist Jacket', 280)">ADD TO BAG</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Kids Minimalist Jacket</h3>
+                        <p class="price">$280.00</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="shop-product-card reveal" data-category="kids" data-price="150">
+                <a href="Product.html?id=28" class="product-link-wrap">
+                    <div class="product-image">
+                        <img src="assets/drop5_boots_1774241938251.webp" alt="Kids Brutalist Boots">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Brutalist Boots', 150)">ADD TO BAG</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Kids Brutalist Boots</h3>
+                        <p class="price">$150.00</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="shop-product-card reveal" data-category="kids" data-price="95">
+                <a href="Product.html?id=29" class="product-link-wrap">
+                    <div class="product-image">
+                        <img src="assets/product2.webp" alt="Kids Geometric Tee">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Geometric Tee', 95)">ADD TO BAG</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Kids Geometric Tee</h3>
+                        <p class="price">$95.00</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="shop-product-card reveal" data-category="kids" data-price="180">
+                <a href="Product.html?id=30" class="product-link-wrap">
+                    <div class="product-image">
+                        <img src="assets/drop5_bag_1774241922238.webp" alt="Kids Urban Backpack">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Urban Backpack', 180)">ADD TO BAG</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Kids Urban Backpack</h3>
+                        <p class="price">$180.00</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="shop-product-card reveal" data-category="kids" data-price="340">
+                <a href="Product.html?id=31" class="product-link-wrap">
+                    <div class="product-image">
+                        <img src="assets/category_objects_1774239660985.webp" alt="Kids Heritage Watch">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Heritage Watch', 340)">ADD TO BAG</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Kids Heritage Watch</h3>
+                        <p class="price">$340.00</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="shop-product-card reveal" data-category="kids" data-price="120">
+                <a href="Product.html?id=32" class="product-link-wrap">
+                    <div class="product-image">
+                        <img src="assets/craftsmanship_1774239680137.webp" alt="Kids Personal Wallet">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Personal Wallet', 120)">ADD TO BAG</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Kids Personal Wallet</h3>
+                        <p class="price">$120.00</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="shop-product-card reveal" data-category="kids" data-price="210">
+                <a href="Product.html?id=33" class="product-link-wrap">
+                    <div class="product-image">
+                        <img src="assets/drop5_frames_1774241956698.webp" alt="Kids Precision Frames">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Precision Frames', 210)">ADD TO BAG</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Kids Precision Frames</h3>
+                        <p class="price">$210.00</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="shop-product-card reveal" data-category="kids" data-price="240">
+                <a href="Product.html?id=34" class="product-link-wrap">
+                    <div class="product-image">
+                        <img src="assets/drop5_sweater_1774241908404.webp" alt="Kids Technical Pullover">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Technical Pullover', 240)">ADD TO BAG</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Kids Technical Pullover</h3>
+                        <p class="price">$240.00</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="shop-product-card reveal" data-category="kids" data-price="480">
+                <a href="Product.html?id=35" class="product-link-wrap">
+                    <div class="product-image">
+                        <img src="assets/product1.webp" alt="Kids Heavyweight Parka">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Heavyweight Parka', 480)">ADD TO BAG</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Kids Heavyweight Parka</h3>
+                        <p class="price">$480.00</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="shop-product-card reveal" data-category="kids" data-price="90">
+                <a href="Product.html?id=36" class="product-link-wrap">
+                    <div class="product-image">
+                        <img src="assets/lookbook2_1774239625282.webp" alt="Kids Minimalist Logo Tee">
+                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('Kids Minimalist Logo Tee', 90)">ADD TO BAG</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Kids Minimalist Logo Tee</h3>
+                        <p class="price">$90.00</p>
+                    </div>
+                </a>
+            </div></div>
     </main>
 
     <!-- Cart Drawer -->

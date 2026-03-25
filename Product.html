@@ -218,8 +218,74 @@
             window.addToCart(title, price);
         });
 
-        // Update UI on load from localStorage
+        // Product Data Map
+        const productData = {
+            "1": {"name":"Mens Technical Jacket","price":780,"img":"assets/product1.webp","category":"Mens","description":"Water-resistant technical jacket with a sleek minimalist silhouette."},
+            "2": {"name":"Mens Brutalist Sweater","price":460,"img":"assets/category_apparel_1774239643938.webp","category":"Mens","description":"Heavyweight knit sweater in a clean optic white finish."},
+            "3": {"name":"Mens Minimalist Logo Tee","price":180,"img":"assets/product2.webp","category":"Mens","description":"Essential cotton tee featuring the STACKLY logo."},
+            "4": {"name":"Mens Brutalist Ring","price":340,"img":"assets/lookbook2_1774239625282.webp","category":"Mens","description":"Handcrafted monochrome ring with architectural design."},
+            "5": {"name":"Mens Technical Utility Belt","price":280,"img":"assets/product3.webp","category":"Mens","description":"Modular utility belt with multi-functional attachments."},
+            "6": {"name":"Mens Industrial Parka","price":890,"img":"assets/product1.webp","category":"Mens","description":"Insulated industrial parka with contemporary tailoring."},
+            "7": {"name":"Mens Structured Overshirt","price":520,"img":"assets/product1.webp","category":"Mens","description":"Clean-cut overshirt for transitional styling."},
+            "8": {"name":"Mens Heavyweight Sweater","price":440,"img":"assets/category_apparel_1774239643938.webp","category":"Mens","description":"Premium textured knit for ultimate winter comfort."},
+            "9": {"name":"Mens Essential Tee","price":150,"img":"assets/product2.webp","category":"Mens","description":"Refined everyday tee in heavyweight cotton."},
+            "10": {"name":"Mens Tech Hoodie","price":380,"img":"assets/product1.webp","category":"Mens","description":"High-performance tech hoodie with sculptural hood."},
+            "11": {"name":"Mens Industrial Boots","price":650,"img":"assets/drop5_boots_1774241938251.webp","category":"Mens","description":"Heavy-duty boots with architectural outsole."},
+            "12": {"name":"Mens Utility Tote","price":220,"img":"assets/drop5_bag_1774241922238.webp","category":"Mens","description":"Spacious tote for industrial-scale everyday carry."},
+            "13": {"name":"Womens Asymmetric Dress","price":950,"img":"assets/lookbook5.webp","category":"Womens","description":"Modern asymmetric black dress for a sophisticated profile."},
+            "14": {"name":"Womens Architectural Ensemble","price":1100,"img":"assets/lookbook3.webp","category":"Womens","description":"Minimalist matching set designed for modern silhouettes."},
+            "15": {"name":"Womens Resort Gown","price":1250,"img":"assets/editorial_bg_1774239696521.webp","category":"Womens","description":"Flowing resort-wear gown blending elegance and modernism."},
+            "16": {"name":"Womens High-Fashion Blazer","price":980,"img":"assets/hero.webp","category":"Womens","description":"Tailored high-fashion blazer with avant-garde sleeve details."},
+            "17": {"name":"Womens Minimalist Dress","price":750,"img":"assets/lookbook5.webp","category":"Womens","description":"Sleek shift dress for contemporary minimalist wardrobes."},
+            "18": {"name":"Womens Brutalist Ring","price":310,"img":"assets/lookbook2_1774239625282.webp","category":"Womens","description":"Statement jewelry piece with raw industrial aesthetic."},
+            "19": {"name":"Womens Technical Blazer","price":820,"img":"assets/hero.webp","category":"Womens","description":"Sharp-shouldered blazer with technical fabric finish."},
+            "20": {"name":"Womens Oversized Tote","price":290,"img":"assets/product3.webp","category":"Womens","description":"Curated leather tote for high-end functionality."},
+            "21": {"name":"Womens Technical Eyewear","price":420,"img":"assets/product3.webp","category":"Womens","description":"Futuristic frames with precision-milled detailing."},
+            "22": {"name":"Womens Detail Hoodie","price":460,"img":"assets/lookbook4.webp","category":"Womens","description":"Technical detail-focused hoodie for urban settings."},
+            "23": {"name":"Womens Sculptural Top","price":580,"img":"assets/lookbook3.webp","category":"Womens","description":"Avant-garde top with structured architectural lines."},
+            "24": {"name":"Womens Modern Trench","price":1450,"img":"assets/lookbook5.webp","category":"Womens","description":"Heavyweight trench coat for industrial winter protection."},
+            "25": {"name":"Kids Technical Hoodie","price":220,"img":"assets/product3.webp","category":"Kids","description":"Miniature tech hoodie with all the professional features."},
+            "26": {"name":"Kids Essential Sweater","price":190,"img":"assets/drop5_sweater_1774241908404.webp","category":"Kids","description":"Soft-knit brutalist sweater for the young minimalist."},
+            "27": {"name":"Kids Minimalist Jacket","price":280,"img":"assets/product1.webp","category":"Kids","description":"Sleek weather-resistant jacket for modern youth."},
+            "28": {"name":"Kids Brutalist Boots","price":150,"img":"assets/drop5_boots_1774241938251.webp","category":"Kids","description":"High-traction boots with a signature architectural sole."},
+            "29": {"name":"Kids Geometric Tee","price":95,"img":"assets/product2.webp","category":"Kids","description":"Premium cotton tee with minimalist brand graphic."},
+            "30": {"name":"Kids Urban Backpack","price":180,"img":"assets/drop5_bag_1774241922238.webp","category":"Kids","description":"Modular backpack designed for children's technical needs."},
+            "31": {"name":"Kids Heritage Watch","price":340,"img":"assets/category_objects_1774239660985.webp","category":"Kids","description":"Sophisticated analog watch for young lifestyle enthusiasts."},
+            "32": {"name":"Kids Personal Wallet","price":120,"img":"assets/craftsmanship_1774239680137.webp","category":"Kids","description":"First leather essentials wallet for the modern child."},
+            "33": {"name":"Kids Precision Frames","price":210,"img":"assets/drop5_frames_1774241956698.webp","category":"Kids","description":"Durable optic-grade frames with technical design."},
+            "34": {"name":"Kids Technical Pullover","price":240,"img":"assets/drop5_sweater_1774241908404.webp","category":"Kids","description":"High-performance pullover designed for high-energy play."},
+            "35": {"name":"Kids Heavyweight Parka","price":480,"img":"assets/product1.webp","category":"Kids","description":"Full-protection industrial parka for extreme conditions."},
+            "36": {"name":"Kids Minimalist Logo Tee","price":90,"img":"assets/lookbook2_1774239625282.webp","category":"Kids","description":"Iconic STACKLY branding for the youngest collective members."}
+        };
+
+        // Update UI on load from URL ID
         window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+            const data = productData[productId];
+
+            if (data) {
+                document.getElementById('product-title').innerText = data.name;
+                document.getElementById('product-price').innerText = `$${data.price.toFixed(2)}`;
+                document.getElementById('main-product-img').src = data.img;
+                document.querySelector('.product-description').innerText = data.description;
+                
+                // Update buy button price
+                const buyBtn = document.querySelector('.buy-btn');
+                if(buyBtn) buyBtn.innerText = `Buy at $${data.price.toFixed(2)}`;
+
+                // Update original price for discount look (randomly 30% higher)
+                const originalPrice = data.price / 0.7;
+                document.querySelector('.original-price').innerText = `$${originalPrice.toFixed(2)}`;
+
+                // Update thumbnails (using placeholder/related ones since we only have 1 main image per product)
+                const thumbnails = document.querySelectorAll('.gallery-thumbnails .thumb');
+                if(thumbnails.length > 0) thumbnails[0].src = data.img;
+                
+                // Update breadcrumb or category display if needed
+                console.log(`Loaded product: ${data.name}`);
+            }
+
             if(window.updateCartUI) window.updateCartUI();
         });
 

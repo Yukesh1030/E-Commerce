@@ -16,9 +16,10 @@ function toggleCart() {
 if(closeBtn) closeBtn.addEventListener('click', toggleCart);
 if(overlay) overlay.addEventListener('click', toggleCart);
 
-// Global function so components can add items
 window.addToCart = function(name, price) {
-    window.location.href = "404.html";
+    cart.push({ name, price });
+    updateCartUI();
+    toggleCart();
 }
 
 function updateCartUI() {
