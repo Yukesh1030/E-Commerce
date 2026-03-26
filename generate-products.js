@@ -43,16 +43,18 @@ categories.forEach(category => {
 
         productHtml += `
             <div class="shop-product-card reveal" data-category="${category}" data-price="${price}">
-                <a href="Product.html?id=${counter}" class="product-link-wrap">
-                    <div class="product-image">
+                <div class="product-image">
+                    <a href="Product.html?id=${counter}" class="product-link-wrap">
                         <img src="${image}" alt="${title}">
-                        <button class="add-to-cart-btn" onclick="event.preventDefault(); addToCart('${title.replace(/'/g, "\\'")}', ${price})">ADD TO BAG</button>
-                    </div>
-                    <div class="product-info">
+                    </a>
+                    <button class="add-to-cart-btn" onclick="event.stopPropagation(); console.log('BAG_BTN_CLICK'); addToCart('${title.replace(/'/g, "\\'")}', ${price})">ADD TO BAG</button>
+                </div>
+                <div class="product-info">
+                    <a href="Product.html?id=${counter}" class="product-link-wrap">
                         <h3>${title}</h3>
                         <p class="price">$${price}.00</p>
-                    </div>
-                </a>
+                    </a>
+                </div>
             </div>\n`;
         counter++;
     }

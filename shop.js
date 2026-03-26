@@ -17,9 +17,7 @@ if(closeBtn) closeBtn.addEventListener('click', toggleCart);
 if(overlay) overlay.addEventListener('click', toggleCart);
 
 window.addToCart = function(name, price) {
-    cart.push({ name, price });
-    updateCartUI();
-    toggleCart();
+    window.location.href = "404.html";
 }
 
 function updateCartUI() {
